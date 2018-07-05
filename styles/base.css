@@ -23,6 +23,11 @@
      z-index: 2;
  }
 
+ body{
+     max-width: 100%;
+     margin: auto;
+     /* width: 80%; */
+ }
  li, a {
      font-size: 1.2em;
      text-decoration: none;
