@@ -1,3 +1,34 @@
-footer h4 {
+
+/* header */
+
+header {
+    color: var(--tron-blue);
+    background-color: black;
+}
+
+/* body */
+main {
+    min-height: 80vh;
+    background-color: var(--tron-black);    
+}
+
+
+/* footer */
+
+footer {
+    display:grid;
+    background-color: black;
+    /* width:100vw; */
+    height: 10vh;
+}
+
+footer p{
+    color: var(--tron-blue);
+    /* background-color: var(--tron-black); */
+    text-align: center;
+    margin:auto;
+}
+small{
+    color: var(--tron-blue);
     text-align: center;
 }

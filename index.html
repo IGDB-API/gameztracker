@@ -10,31 +10,58 @@
     <link rel="stylesheet" href="./styles/base.css">
     <link rel="stylesheet" href="./styles/layout.css">
     <link rel="stylesheet" href="./styles/modules.css">
+    <link rel="stylesheet" href="./styles/datedropper.css">
+    <!-- <link rel="stylesheet" href="./styles/particle.css"> -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt"
+        crossorigin="anonymous">
 </head>
 
 <body>
+    <div id="particles-js"></div>
     <header>
-        <div id="navbar"></div>
-        <ul>
-            <li>DataBase</li>
-            <li>Contact</li>
-            <li>Logout</li>
-        </ul>
+        <nav id="navbar">
+            <div id="logo"></div>
+            <div id="search-bar">
+                <input type="text" placeholder="Search game here..." id="search-input" />
+                <button class="search fas fa-search"></button>
+            </div>
+
+            <ul>
+
+                <li class="fas fa-gamepad">
+                    <a href="#"> DataBase</a>
+                </li>
+
+
+                <li class="fas fa-chart-line">
+                    <a href="#"> DailyDeal</a>
+                </li>
+
+
+                <li class="fas fa-sign-out-alt">
+                    <a href="#">Logout</a>
+                </li>
+
+            </ul>
+        </nav>
     </header>
 
     <main>
-
         <h1>whatever</h1>
+        <section class="container"></section>
+        <section class="container"></section>
+        <section class="container"></section>
 
     </main>
-    
+
     <footer>
-        <hr>
-        <h4>&copy;IGDB-API-2018</h4>
+        <p>&copy;IGDB-API-2018&nbsp All Right Reserved</p>
+        <small>Created by Chi</small>
     </footer>
 
     <!-- CDN -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.js"></script> -->
     <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
     <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
     <!-- LOCAL JS -->
