@@ -1,8 +1,9 @@
 'use strict';
-///news api section/////
+/////news api section/////
 const news_api_key = "45829221655b4ae8a3f912d8b16b331a";
 let newsResults = {};
-let settings = {
+// let author = {};
+let newsSettings = {
     "async": true,
     "crossDomain": true,
     "url": `https://newsapi.org/v2/top-headlines?sources=polygon&apiKey=${news_api_key}`,
@@ -14,12 +15,41 @@ let settings = {
 }
 
 function populateNews() {
-    $.ajax(settings).done(function (res) {
+    $.ajax(newsSettings).done(function (res) {
         console.log(res);
-        console.log(res.articles[0].title)
+        // console.log(res.articles[0].title)
 
         newsResults = res;
+        for (let i in res.articles) {
+            let title = newsResults.articles[i].title;
+            let author = newsResults.articles[i].author;
+            let description = newsResults.articles[i].description;
+            let url = newsResults.articles[i].url;
+            let urlToImage = newsResults.articles[i].urlToImage;
+            let publisheAt = newsResults.articles[i].publisheAt;
+
+
+            // console.log(author);
+            // console.log(title);
+            // console.log(description);
+            $('.news').append(
+                `<div>
+                <h3>${title}</h3>
+                <p>By ${author}</p>
+                <a href="${url}">link</a>
+                <p>Description: ${description}</p>
+
+                
+                </div>`
+            )
+        }
     });
 
 }
 // populateNews();
+// author, description, publisheAt, url, urlToImage,title
+
+
+/////news api section end here/////
+
+/////IGDB api section/////
