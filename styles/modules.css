@@ -87,14 +87,14 @@ nav ul {
 nav ul>li {
     display: inline-block;
     /* color:var(--tron-pane); */
-    padding: 1em 2em 1em 2em;
+    padding: 0.5em 2em 0.5em 2em;
 }
 
 nav ul>li:hover {
     /* color:var(--tron-yellow); */
     transition-duration: 0.3s;
-    transform: scale(1.2);
-    outline: 1px solid var(--tron-blue);
+    transform: scale(1.1);
+    outline: 2px solid var(--tron-blue);
 }
 
 /* header modules end here */
@@ -115,7 +115,6 @@ nav ul>li:hover {
     grid-area: news-left;
     border-top: 1px solid var(--tron-blue);
     /* transform: rotate(342deg) scale(1.061) skew(-22deg) translate(21px); */
-    
 }
 
 .news-left>h3 {
@@ -128,6 +127,11 @@ nav ul>li:hover {
     font-size: 1.2em;
 }
 
+.news-left>a {
+    color: var(--tron-pane);
+    text-decoration: underline;
+}
+
 .news-template>img {
     grid-area: img;
     width: 20vw;
@@ -135,3 +139,42 @@ nav ul>li:hover {
     margin: 1em auto;
     /* transform: rotate(-342deg) scale(1.061) skew(22deg) translate(21px); */
 }
+
+/* //news modules end here */
+
+/* //footer here// */
+
+footer p {
+    color: var(--tron-blue);
+    /* background-color: var(--tron-black); */
+    text-align: center;
+    margin: auto;
+}
+
+footer ul>li {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    /* margin: auto; */
+    margin-right: 1em;
+}
+
+#igdb-logo {
+    background-image: url("../src/igdb-logo.png");
+    background-size: cover;
+    width: 30px;
+    height: 30px;
+    margin: auto;
+}
+
+.footer-mid {
+    grid-area: footer-mid;
+    margin: auto;
+}
+
+.footer-right {
+    grid-area: footer-right;
+    margin: auto;
+}
+
+/* //footer end here // */

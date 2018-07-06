@@ -22,19 +22,12 @@ main {
 
 footer {
     display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas: ". footer-mid footer-right";
     background-color: black;
     /* width:100vw; */
     height: 10vh;
 }
 
-footer p {
-    color: var(--tron-blue);
-    /* background-color: var(--tron-black); */
-    text-align: center;
-    margin: auto;
-}
 
-small {
-    color: var(--tron-blue);
-    text-align: center;
-}
+/* //footer end here// */

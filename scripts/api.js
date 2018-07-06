@@ -6,7 +6,7 @@ let newsResults = {};
 const newsSettings = {
     "async": true,
     "crossDomain": true,
-    "url": `https://newsapi.org/v2/top-headlines?sources=polygon&apiKey=${news_api_key}`,
+    "url": `https://newsapi.org/v2/everything?sources=polygon&apiKey=${news_api_key}`,
     "method": "GET",
     // "headers": {
     // "cache-control": "no-cache",
@@ -38,6 +38,8 @@ function populateNews() {
                 <h3>${title}</h3>
                 <p>By ${author}</p>
                 <small>${publishedAt}</small>
+                <br>
+                <br>
                 <p>Description: ${description}</p>
                 <br>
                 <a href="${url}" target="_blank">Click for more detail</a>
