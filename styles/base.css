@@ -42,6 +42,6 @@
      outline: none;
  }
 
- body p, h1,h2,h3,h4,a {
+ body p, h1,h2,h3,h4,a,small {
      color: var(--tron-blue);
  }

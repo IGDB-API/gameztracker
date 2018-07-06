@@ -3,7 +3,7 @@
 header {
     position: sticky;
     color: var(--tron-blue);
-    background-color: black;
+    background-color:black;
     top: 0px;
     opacity: 0.8;
     z-index: 2;
@@ -15,7 +15,7 @@ header {
 main {
     min-height: 70vh;
     background-color: var(--tron-black);
-    margin-top: 3em;
+    margin-top: 10vh;
 }
 
 /* footer */

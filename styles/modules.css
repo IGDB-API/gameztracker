@@ -118,12 +118,13 @@ nav ul>li:hover {
 }
 
 .news-left>h3 {
-    color: var(--tron-yellow);
+    color: var(--tron-blue);
     font-size: 1.5em;
     /* background-color: var(--tron-blue); */
 }
 
 .news-left>p {
+    color:var(--tron-pane);
     font-size: 1.2em;
 }
 
@@ -134,8 +135,8 @@ nav ul>li:hover {
 
 .news-template>img {
     grid-area: img;
-    width: 20vw;
-    height: 13vw;
+    min-width: 15vw;
+    height: 10vw;
     margin: 1em auto;
     /* transform: rotate(-342deg) scale(1.061) skew(22deg) translate(21px); */
 }
@@ -153,8 +154,8 @@ footer p {
 
 footer ul>li {
     display: inline-block;
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     /* margin: auto; */
     margin-right: 1em;
 }
