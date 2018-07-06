@@ -3,8 +3,9 @@
 nav {
     position: relative;
     display: grid;
-    grid-template-columns: 1fr 3fr;
+    grid-template-columns: 1fr 4fr;
     grid-template-areas: "logo search-bar" "cog ul";
+    /* grid-template-areas: "logo search-bar ul cog"; */
 }
 
 #logo {
@@ -18,6 +19,7 @@ nav {
 #search-bar {
     grid-area: search-bar;
     margin: auto;
+    /* justify-self: end; */
 }
 
 #search-input {
@@ -54,7 +56,6 @@ nav {
     grid-area: cog;
     font-size: 2em;
     align-self: center;
-    /* margin:auto; */
     width: 1em;
     height: 1em;
     margin-left: 0.5em;
@@ -97,3 +98,40 @@ nav ul>li:hover {
 }
 
 /* header modules end here */
+
+/* news modules */
+
+.news-template {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-areas: "news-left img";
+    margin: auto;
+    /* margin:auto; */
+    width: 65vw;
+    perspective: 1000px;
+}
+
+.news-left {
+    grid-area: news-left;
+    border-top: 1px solid var(--tron-blue);
+    /* transform: rotate(342deg) scale(1.061) skew(-22deg) translate(21px); */
+    
+}
+
+.news-left>h3 {
+    color: var(--tron-yellow);
+    font-size: 1.5em;
+    /* background-color: var(--tron-blue); */
+}
+
+.news-left>p {
+    font-size: 1.2em;
+}
+
+.news-template>img {
+    grid-area: img;
+    width: 20vw;
+    height: 13vw;
+    margin: 1em auto;
+    /* transform: rotate(-342deg) scale(1.061) skew(22deg) translate(21px); */
+}

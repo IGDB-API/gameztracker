@@ -1,34 +1,40 @@
-
 /* header */
 
 header {
+    position: sticky;
     color: var(--tron-blue);
     background-color: black;
+    top: 0px;
+    opacity: 0.8;
+    z-index: 2;
+    /* height:13vh; */
 }
 
 /* body */
-main {
-    min-height: 80vh;
-    background-color: var(--tron-black);    
-}
 
+main {
+    min-height: 70vh;
+    background-color: var(--tron-black);
+    margin-top: 3em;
+}
 
 /* footer */
 
 footer {
-    display:grid;
+    display: grid;
     background-color: black;
     /* width:100vw; */
     height: 10vh;
 }
 
-footer p{
+footer p {
     color: var(--tron-blue);
     /* background-color: var(--tron-black); */
     text-align: center;
-    margin:auto;
+    margin: auto;
 }
-small{
+
+small {
     color: var(--tron-blue);
     text-align: center;
 }

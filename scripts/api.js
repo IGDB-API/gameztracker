@@ -2,8 +2,8 @@
 /////news api section/////
 const news_api_key = "45829221655b4ae8a3f912d8b16b331a";
 let newsResults = {};
-// let author = {};
-let newsSettings = {
+
+const newsSettings = {
     "async": true,
     "crossDomain": true,
     "url": `https://newsapi.org/v2/top-headlines?sources=polygon&apiKey=${news_api_key}`,
@@ -26,28 +26,31 @@ function populateNews() {
             let description = newsResults.articles[i].description;
             let url = newsResults.articles[i].url;
             let urlToImage = newsResults.articles[i].urlToImage;
-            let publisheAt = newsResults.articles[i].publisheAt;
+            let publishedAt = newsResults.articles[i].publishedAt;
 
 
             // console.log(author);
             // console.log(title);
             // console.log(description);
             $('.news').append(
-                `<div>
+                `<div class="news-template">
+                <div class="news-left">
                 <h3>${title}</h3>
                 <p>By ${author}</p>
-                <a href="${url}">link</a>
+                <small>${publishedAt}</small>
                 <p>Description: ${description}</p>
-
-                
+                <br>
+                <a href="${url}" target="_blank">Click for more detail</a>
+                </div>
+                <img src="${urlToImage}"/>
                 </div>`
             )
         }
     });
 
 }
-// populateNews();
-// author, description, publisheAt, url, urlToImage,title
+populateNews();
+// author, description, publishedAt, url, urlToImage,title
 
 
 /////news api section end here/////
