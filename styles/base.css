@@ -10,6 +10,10 @@
 
  /* global variable */
 
+ /* font-family: 'Play', sans-serif; */
+
+ /* font-family: 'Russo One', sans-serif; */
+
  :root {
      --tron-yellow: #FFE64D;
      --tron-orange: #DF740C;
@@ -18,16 +22,24 @@
      --tron-black: #0C141F;
  }
 
+ p,a{
+     font-family: 'Play', sans-serif;
+ }
+
+ h1,h2,h3,h4{
+    font-family: 'Russo One', sans-serif;
+ }
  * {
      box-sizing: border-box;
      z-index: 3;
  }
 
- body{
+ body {
      max-width: 100%;
      margin: auto;
      /* width: 80%; */
  }
+
  li, a {
      font-size: 1.1em;
      text-decoration: none;
@@ -42,6 +54,6 @@
      outline: none;
  }
 
- body p, h1,h2,h3,h4,a,small {
+ body p, h1, h2, h3, h4, a, small {
      color: var(--tron-blue);
  }

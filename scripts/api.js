@@ -53,8 +53,36 @@ function populateNews() {
 }
 populateNews();
 // author, description, publishedAt, url, urlToImage,title
-
-
 /////news api section end here/////
 
+
+
 /////IGDB api section/////
+
+/////ID IMPORTANT/////
+
+// https://api-endpoint.igdb.com/games/103020?fields=*
+
+let popularResults = {};
+const igdbSettings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "https://api-endpoint.igdb.com/games/?fields=name%2Cpopularity&order=popularity%3Adesc",
+    "method": "GET",
+    "headers": {
+        "user-key": "61a389d905c858b1876e64145ecdaa50",
+        "cache-control": "no-cache",
+        "postman-token": "c27e088d-464d-8b66-a7e6-4ef8a3a8f329"
+    }
+}
+function populatePopular() {
+    $.ajax(igdbSettings).done(function (res) {
+        console.log(res);
+        // console.log('fk');
+        popularResults = res;
+        }).fail(e => {
+        console.log("error", e);
+
+    });
+}
+// populatePopular();
