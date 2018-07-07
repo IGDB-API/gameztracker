@@ -1,8 +1,12 @@
 'use strict';
 
+
+
+$(function hideScroll() {
+    $('.scroll-top').hide();
+});
 //scroll up button//
 $(window).scroll(function () {
-
     if ($(this).scrollTop() > 500) {
         $('.scroll-top').fadeIn();
     }
@@ -18,4 +22,13 @@ $('.scroll-top').on('click', function (e) {
         scrollTop: 0
     }, 800);
 })
- //scroll up button end here//
+//scroll up button end here//
+
+$(function hightLight() {
+    $('#navbar').on('click', 'li', function () {
+        $('#navbar ul li').removeClass("active");
+        $(this).addClass("active");
+
+    })
+
+})

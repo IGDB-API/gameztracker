@@ -3,7 +3,7 @@
 const news_api_key = "45829221655b4ae8a3f912d8b16b331a";
 let newsResults = {};
 
-const newsSettings = {
+let newsSettings = {
     "async": true,
     "crossDomain": true,
     "url": `https://newsapi.org/v2/everything?sources=polygon&apiKey=${news_api_key}`,
@@ -64,13 +64,15 @@ populateNews();
 // https://api-endpoint.igdb.com/games/103020?fields=*
 
 let popularResults = {};
-const igdbSettings = {
+let igdbSettings = {
     "async": true,
     "crossDomain": true,
     "url": "https://api-endpoint.igdb.com/games/?fields=name%2Cpopularity&order=popularity%3Adesc",
     "method": "GET",
+    // "dataType":"jsonp",
     "headers": {
         "user-key": "61a389d905c858b1876e64145ecdaa50",
+        "Access-Control-Allow-Origin": "*",
         "cache-control": "no-cache",
         "postman-token": "c27e088d-464d-8b66-a7e6-4ef8a3a8f329"
     }
@@ -80,7 +82,7 @@ function populatePopular() {
         console.log(res);
         // console.log('fk');
         popularResults = res;
-        }).fail(e => {
+    }).fail(e => {
         console.log("error", e);
 
     });

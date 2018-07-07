@@ -6,7 +6,7 @@ header {
     background-color:black;
     top: 0px;
     opacity: 0.8;
-    z-index: 2;
+    z-index: 5;
     /* height:13vh; */
 }
 
