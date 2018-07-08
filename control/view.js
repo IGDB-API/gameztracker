@@ -1,11 +1,10 @@
 'use strict';
 
 
-
+/////scroll up button/////
 $(function hideScroll() {
     $('.scroll-top').hide();
 });
-//scroll up button//
 $(window).scroll(function () {
     if ($(this).scrollTop() > 500) {
         $('.scroll-top').fadeIn();
@@ -22,13 +21,15 @@ $('.scroll-top').on('click', function (e) {
         scrollTop: 0
     }, 800);
 })
-//scroll up button end here//
+/////scroll up button end here/////
 
+/////highlight active menu/////
 $(function hightLight() {
     $('#navbar').on('click', 'li', function () {
         $('#navbar ul li').removeClass("active");
         $(this).addClass("active");
 
-    })
+    });
 
-})
+});
+/////highlight active menu end here/////

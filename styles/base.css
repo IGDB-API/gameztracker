@@ -22,22 +22,33 @@
      --tron-black: #0C141F;
  }
 
- p,a{
+ p, a {
      font-family: 'Play', sans-serif;
  }
 
- h1,h2,h3,h4{
-    font-family: 'Russo One', sans-serif;
+ h1, h2, h3, h4 {
+     font-family: 'Russo One', sans-serif;
  }
+
  * {
      box-sizing: border-box;
-     z-index: 3;
  }
 
  body {
      max-width: 100%;
      margin: auto;
      /* width: 80%; */
+     background-color: var(--tron-black);
+ }
+
+ section {
+     position: relative;
+     z-index: 5;
+ }
+
+ .news {
+     width: 55vw;
+     margin: auto;
  }
 
  li, a {
@@ -54,6 +65,6 @@
      outline: none;
  }
 
- body p, h1, h2, h3, h4, a, small {
+ body p, h1, h2, h3, h4, a, small, th, tr, td {
      color: var(--tron-blue);
  }

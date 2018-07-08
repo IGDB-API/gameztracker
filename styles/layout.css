@@ -3,10 +3,10 @@
 header {
     position: sticky;
     color: var(--tron-blue);
-    background-color:black;
+    background-color: black;
     top: 0px;
     opacity: 0.8;
-    z-index: 5;
+    z-index: 8;
     /* height:13vh; */
 }
 
@@ -21,13 +21,14 @@ main {
 /* footer */
 
 footer {
+    position: relative;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-areas: ". footer-mid footer-right";
     background-color: black;
     /* width:100vw; */
     height: 10vh;
+    opacity: 0.8;
 }
-
 
 /* //footer end here// */
