@@ -127,7 +127,7 @@ $(function popluateDeals() {
             let savings = Math.round(dealsResults[i].savings);
             let thumb = dealsResults[i].thumb;
             let metacriticScore = dealsResults[i].metacriticScore;
-            $('.deals-table').append(
+            $('#table-here').append(
                 `
                 <tr>
                 <td>${storeNames}</td>
@@ -140,10 +140,11 @@ $(function popluateDeals() {
                 `
             )
         }
-
+        doIt();
     }).fail(e => {
         console.log("error", e);
     });
+  
 });
 
 

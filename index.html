@@ -56,16 +56,21 @@
         <section class="container data-base">NO FREAKING WAY!!!</section>
         <section class="container daily-deal">
             <!-- <div class="deals"> -->
-                <table class="deals-table">
+            <table id="deals-table" class="tablesorter">
+                <thead>
                     <tr>
                         <th>STORE</th>
                         <th>PRICE</th>
                         <th>SAVINGS</th>
                         <th>TITLE</th>
-                        <th>DEAL RATING</th>
+                        <th title="Deal Rating is on a scale from 0 to 10.It factors in price, percent off,metacritic score,release date,price history,and more.">DEAL RATING</th>
                         <th>METACRITIC</th>
                     </tr>
-                </table>
+                </thead>
+                <tbody id="table-here">
+
+                </tbody>
+            </table>
             <!-- </div> -->
         </section>
     </main>
@@ -92,6 +97,8 @@
     <!-- CDN -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.js"></script>
+    <script src="https://mottie.github.io/tablesorter/js/jquery.tablesorter.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.30.1/js/jquery.tablesorter.min.js"></script> -->
     <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
     <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
     <!-- LOCAL JS -->
