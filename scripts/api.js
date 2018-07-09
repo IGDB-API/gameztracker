@@ -13,7 +13,7 @@ let newsSettings = {
     // }
 }
 
-function populateNews() {
+$(function populateNews() {
     $.ajax(newsSettings).done(function (res) {
         console.log(res);
         // console.log(res.articles[0].title)
@@ -51,8 +51,8 @@ function populateNews() {
 
     });
 
-}
-populateNews();
+});
+// populateNews();
 // author, description, publishedAt, url, urlToImage,title
 /////news api section end here/////
 
@@ -72,10 +72,13 @@ let igdbSettings = {
     // "dataType":"jsonp",
     "headers": {
         "access-control-allow-origin": "*",
-        "user-key": "61a389d905c858b1876e64145ecdaa50",
+        "user-key": "ebb3db734a407207d7297d14332708f5",
         "cache-control": "no-cache",
         // "postman-token": "c27e088d-464d-8b66-a7e6-4ef8a3a8f329"
     }
+}
+{
+    
 }
 function populatePopular() {
     $.ajax(igdbSettings).done(function (res) {
@@ -95,11 +98,10 @@ function populatePopular() {
 // http://www.cheapshark.com/api/1.0/deals?storeID=1,4,5,11&lowerPrice=0&pageSize=50
 
 let dealsResults = {};
-// let dealID={};
+let storeInfo = {};
 
 // http://www.cheapshark.com/api/1.0/stores
 /////retrive StoreNames matching ID/////
-let storeInfo = {};
 $(function storeNames() {
     $.ajax("http://www.cheapshark.com/api/1.0/stores").done(function (res) {
         console.log(res);
