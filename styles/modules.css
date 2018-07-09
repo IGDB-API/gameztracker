@@ -156,7 +156,7 @@ nav ul>li:hover {
 /* /////daily-deal section///// */
 
 
-.deals-table {
+#deals-table {
     width: 65vw;
     margin: auto;
     text-align: center;

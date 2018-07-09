@@ -33,3 +33,15 @@ $(function hightLight() {
 
 });
 /////highlight active menu end here/////
+
+
+/////table sorter/////
+// $(function() {
+//     $("#deals-table").tablesorter();
+//   });
+function doIt() {
+    $("#deals-table").tablesorter();
+}
+
+
+/////table sorter end here /////
