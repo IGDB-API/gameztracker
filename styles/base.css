@@ -30,8 +30,25 @@
      font-family: 'Russo One', sans-serif;
  }
 
+ .header-perspective {
+     perspective: 500px;
+ }
+
+ h1 {
+     /* font-weight: bold; */
+     font-size: 3em;
+     text-align: center;
+     transform: rotateX(20deg);
+     text-shadow: -2px -5px 15px;
+     margin: 1em 0 1em 0;
+ }
+
  * {
      box-sizing: border-box;
+ }
+
+ body p, h1, h2, h3, h4, a, small, th, tr, td {
+     color: var(--tron-blue);
  }
 
  body {
@@ -68,8 +85,4 @@
 
  input:focus {
      outline: none;
- }
-
- body p, h1, h2, h3, h4, a, small, th, tr, td {
-     color: var(--tron-blue);
  }

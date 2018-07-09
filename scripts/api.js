@@ -80,7 +80,7 @@ var igdbSettings = {
 
 }
 function populatePopular() {
-    $.ajax(igdbSettings).then(function (res,status) {
+    $.ajax(igdbSettings).then(function (res, status) {
         console.log(res);
         console.log(status);
         // console.log('fk');
@@ -140,11 +140,14 @@ $(function popluateDeals() {
                 `
             )
         }
+        /////apply tablesorter after table generated/////
         doIt();
+        /////apply tablesorter after table generated/////
+
     }).fail(e => {
         console.log("error", e);
     });
-  
+
 });
 
 

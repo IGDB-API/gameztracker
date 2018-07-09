@@ -42,6 +42,20 @@ $(function hightLight() {
 function doIt() {
     $("#deals-table").tablesorter();
 }
-
-
 /////table sorter end here /////
+
+/////views for all pages/////
+$("#section-news").on('click', function () {
+    $('.container').hide(300);
+    $('.news').fadeIn(300);
+})
+$("#section-daily-deal").on('click', function () {
+    $('.container').hide(300);
+    $('.daily-deal').fadeIn(300);
+})
+$("#section-data-base").on('click', function () {
+    $('.container').hide(300);
+    $('.data-base').fadeIn(300);
+})
+
+/////views for all pages end here/////
