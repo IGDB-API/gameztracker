@@ -45,6 +45,12 @@ function doIt() {
 /////table sorter end here /////
 
 /////views for all pages/////
+$(function () {
+    $('.container').hide();
+    $('.news').show(100);
+})
+
+
 $("#section-news").on('click', function () {
     $('.container').hide(300);
     $('.news').fadeIn(300);
