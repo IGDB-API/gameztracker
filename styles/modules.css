@@ -88,6 +88,7 @@ nav ul>li {
     display: inline-block;
     /* color:var(--tron-pane); */
     padding: 0.5em 2em 0.5em 2em;
+    margin:0 0.7em 0 0.7em;
 }
 
 nav ul>li:hover {
@@ -154,15 +155,10 @@ nav ul>li:hover {
 
 /* /////daily-deal section///// */
 
-.deals {
-    width: 80vw;
-    margin: auto;
-    /* z-index: 5; */
-}
 
 .deals-table {
+    width: 65vw;
     margin: auto;
-    /* z-index: 5; */
     text-align: center;
 }
 

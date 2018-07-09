@@ -64,25 +64,25 @@ $(function populateNews() {
 // https://api-endpoint.igdb.com/games/103020?fields=*
 
 let popularResults = {};
-let igdbSettings = {
+var igdbSettings = {
     "async": true,
     "crossDomain": true,
-    "url": "https://api-endpoint.igdb.com/games/?fields=name%2Cpopularity&order=popularity%3Adesc",
+    "url": "https://api-endpoint.igdb.com/games/?order=popularity%3Adesc&fields=summary%2Cstoryline%2Curl%2Cname%2Cthemes.name%2Cgame.name%2Ccover&expand=game%2Cgenres%2Cthemes%2Cdevelopers",
     "method": "GET",
-    // "dataType":"jsonp",
     "headers": {
-        "access-control-allow-origin": "*",
+        "Access-Control-Allow-Origin": "http://www.gameztracker.com",
         "user-key": "ebb3db734a407207d7297d14332708f5",
-        "cache-control": "no-cache",
-        // "postman-token": "c27e088d-464d-8b66-a7e6-4ef8a3a8f329"
+        "cache-control": "no-cache"
+        // "postman-token": "4716cfab-088a-e453-5795-cc5f9850cd64"
     }
 }
 {
-    
+
 }
 function populatePopular() {
-    $.ajax(igdbSettings).done(function (res) {
+    $.ajax(igdbSettings).then(function (res,status) {
         console.log(res);
+        console.log(status);
         // console.log('fk');
         popularResults = res;
     }).fail(e => {

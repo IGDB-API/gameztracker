@@ -51,6 +51,11 @@
      margin: auto;
  }
 
+ .daily-deal {
+     width: 70vw;
+     margin: auto;
+ }
+
  li, a {
      font-size: 1.1em;
      text-decoration: none;
