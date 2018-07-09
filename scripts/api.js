@@ -70,7 +70,7 @@ var igdbSettings = {
     "url": "https://api-endpoint.igdb.com/games/?order=popularity%3Adesc&fields=summary%2Cstoryline%2Curl%2Cname%2Cthemes.name%2Cgame.name%2Ccover&expand=game%2Cgenres%2Cthemes%2Cdevelopers",
     "method": "GET",
     "headers": {
-        "Access-Control-Allow-Origin": "http://www.gameztracker.com",
+        "Access-Control-Allow-Origin": "https://www.gameztracker.com",
         "user-key": "ebb3db734a407207d7297d14332708f5",
         "cache-control": "no-cache"
         // "postman-token": "4716cfab-088a-e453-5795-cc5f9850cd64"
@@ -95,22 +95,22 @@ function populatePopular() {
 
 
 /////CheapShark api section/////
-// http://www.cheapshark.com/api/1.0/deals?storeID=1,4,5,11&lowerPrice=0&pageSize=50
+// https://www.cheapshark.com/api/1.0/deals?storeID=1,4,5,11&lowerPrice=0&pageSize=50
 
 let dealsResults = {};
 let storeInfo = {};
 
-// http://www.cheapshark.com/api/1.0/stores
+// https://www.cheapshark.com/api/1.0/stores
 /////retrive StoreNames matching ID/////
 $(function storeNames() {
-    $.ajax("http://www.cheapshark.com/api/1.0/stores").done(function (res) {
+    $.ajax("https://www.cheapshark.com/api/1.0/stores").done(function (res) {
         console.log(res);
         storeInfo = res;
 
     });
 });
 
-let dealsSetting = { "url": "http://www.cheapshark.com/api/1.0/deals?storeID=1,4,5,11&lowerPrice=0&pageSize=50" };
+let dealsSetting = { "url": "https://www.cheapshark.com/api/1.0/deals?storeID=1,4,5,11&lowerPrice=0&pageSize=50" };
 
 $(function popluateDeals() {
     $.ajax(dealsSetting).done(function (res) {
@@ -119,7 +119,7 @@ $(function popluateDeals() {
         for (let i in dealsResults) {
             let storeID = dealsResults[i].storeID
             let storeNames = storeInfo[storeID - 1].storeName;
-            let dealUrl = `"http://www.cheapshark.com/redirect?dealID=${dealsResults[i].dealID}"`;
+            let dealUrl = `"https://www.cheapshark.com/redirect?dealID=${dealsResults[i].dealID}"`;
             let title = dealsResults[i].title;
             let dealRating = dealsResults[i].dealRating;
             let salePrice = dealsResults[i].salePrice;
