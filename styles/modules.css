@@ -1,0 +1,229 @@
+/* header modules */
+
+nav {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    grid-template-areas: "logo search-bar" "cog ul";
+    /* grid-template-areas: "logo search-bar ul cog"; */
+}
+
+#logo {
+    grid-area: logo;
+    background-image: url("../src/api-logo.png");
+    width: 15em;
+    height: 6em;
+    background-size: cover;
+}
+
+#search-bar {
+    grid-area: search-bar;
+    margin: auto;
+    /* justify-self: end; */
+}
+
+#search-input {
+    color: var(--tron-pane);
+    font-weight: bold;
+    border: none;
+    border-bottom: 2px solid var(--tron-pane);
+    padding: none;
+    background-color: black;
+}
+
+#search-input:focus, #search-input:hover {
+    transition-duration: 0.5s;
+    transform: scaleY(1.5);
+    border-bottom: 2px solid var(--tron-blue);
+}
+
+.search {
+    background-color: var(--tron-blue);
+    border: 0px;
+}
+
+.fa-search {
+    width: 2em;
+    height: 2em;
+}
+
+.fa-search:hover, .fa-search:active {
+    transition-duration: 0.3s;
+    transform: scale(1.2);
+}
+
+.fa-cog {
+    grid-area: cog;
+    font-size: 2em;
+    align-self: center;
+    width: 1em;
+    height: 1em;
+    margin-left: 0.5em;
+    animation: spinner 5s linear infinite;
+}
+
+.fa-cog:hover {
+    position: absolute;
+    /* top: 0px; */
+    /* animation: spinner 5s linear infinite; */
+    animation: paused;
+    transform: scale(1.3);
+}
+
+@keyframes spinner {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+nav ul {
+    grid-area: ul;
+    margin: auto;
+}
+
+nav ul>li {
+    display: inline-block;
+    /* color:var(--tron-pane); */
+    padding: 0.5em 2em 0.5em 2em;
+    margin:0 0.7em 0 0.7em;
+}
+
+nav ul>li:hover {
+    /* color:var(--tron-yellow); */
+    transition-duration: 0.3s;
+    transform: scale(1.1);
+    outline: 2px solid var(--tron-blue);
+}
+
+.active {
+    transform: scale(1.1);
+    outline: 2px solid var(--tron-blue);
+}
+
+/* header modules end here */
+
+/* news modules */
+
+.news-template {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-areas: "news-left img";
+    margin: auto;
+    /* margin:auto; */
+    /* width: 65vw; */
+    perspective: 1000px;
+}
+
+.news-left {
+    grid-area: news-left;
+    border-top: 1px solid var(--tron-blue);
+    transform: rotateX(15deg);
+    text-shadow: -2px -2px 10px;
+}
+
+.news-left>h3 {
+    color: var(--tron-blue);
+    font-size: 1.2em;
+    /* background-color: var(--tron-blue); */
+}
+
+.news-left>p {
+    color: var(--tron-pane);
+    font-size: 1.2em;
+}
+
+.news-left>a {
+    color: var(--tron-pane);
+    text-decoration: underline;
+}
+
+.news-template>img {
+    grid-area: img;
+    width: 17vw;
+    height: 10vw;
+    margin: 1em auto;
+    /* transform: rotate(-342deg) scale(1.061) skew(22deg) translate(21px); */
+    /* transform: rotateX(10deg); */
+    border-top: 2px solid var(--tron-blue);
+    border-bottom: 2px solid var(--tron-blue);
+}
+
+/* //news modules end here */
+
+/* /////daily-deal section///// */
+
+
+.deals-table {
+    width: 65vw;
+    margin: auto;
+    text-align: center;
+}
+
+table {
+    border-collapse: separate;
+    border-spacing: 0.5em;
+}
+
+.deals-thumb {
+    width: 100px;
+    height: 40px;
+    background-size: contain;
+}
+
+.deals-title {
+    text-align: left;
+    text-decoration: underline;
+}
+
+/* /////daily-deal end here ///// */
+
+/* //footer here // */
+
+.scroll-top {
+    font-size: 3em;
+    color: var(--tron-blue);
+    position: fixed;
+    bottom: 5%;
+    right: 5%;
+    opacity: 0.6;
+    border: 0;
+    z-index: 10;
+}
+
+footer p {
+    color: var(--tron-blue);
+    /* background-color: var(--tron-black); */
+    text-align: center;
+    margin: auto;
+}
+
+footer ul>li {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    /* margin: auto; */
+    margin-right: 1em;
+}
+
+#igdb-logo {
+    background-image: url("../src/igdb-logo.png");
+    background-size: cover;
+    width: 30px;
+    height: 30px;
+    margin: auto;
+}
+
+.footer-mid {
+    grid-area: footer-mid;
+    margin: auto;
+}
+
+.footer-right {
+    grid-area: footer-right;
+    margin: auto;
+}
+
+/* //footer end here// */

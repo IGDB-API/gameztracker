@@ -1,0 +1,75 @@
+ /* tron blue =  #6ddad3 */
+
+ /* tron orange = #DF740C */
+
+ /* tron yellow = #FFE64D*/
+
+ /* tron pane = #E6FFFF*/
+
+ /* tron black = #0C141F */
+
+ /* global variable */
+
+ /* font-family: 'Play', sans-serif; */
+
+ /* font-family: 'Russo One', sans-serif; */
+
+ :root {
+     --tron-yellow: #FFE64D;
+     --tron-orange: #DF740C;
+     --tron-pane: #E6FFFF;
+     --tron-blue: #6ddad3;
+     --tron-black: #0C141F;
+ }
+
+ p, a {
+     font-family: 'Play', sans-serif;
+ }
+
+ h1, h2, h3, h4 {
+     font-family: 'Russo One', sans-serif;
+ }
+
+ * {
+     box-sizing: border-box;
+ }
+
+ body {
+     max-width: 100%;
+     margin: auto;
+     /* width: 80%; */
+     background-color: var(--tron-black);
+ }
+
+ section {
+     position: relative;
+     z-index: 5;
+ }
+
+ .news {
+     width: 55vw;
+     margin: auto;
+ }
+
+ .daily-deal {
+     width: 70vw;
+     margin: auto;
+ }
+
+ li, a {
+     font-size: 1.1em;
+     text-decoration: none;
+     color: inherit;
+ }
+
+ ul {
+     list-style: none;
+ }
+
+ input:focus {
+     outline: none;
+ }
+
+ body p, h1, h2, h3, h4, a, small, th, tr, td {
+     color: var(--tron-blue);
+ }
