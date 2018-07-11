@@ -7,17 +7,11 @@ let newsSettings = {
     "crossDomain": true,
     "url": `https://newsapi.org/v2/top-headlines?language=en&sources=ign,polygon,the-verge&apiKey=${news_api_key}`,
     "method": "GET",
-    // "headers": {
-    // "cache-control": "no-cache",
-    // "postman-token": "f72e2062-8ef6-70d1-4cb7-cb27ad5e11bb"
-    // }
 }
 
 $(function populateNews() {
     $.ajax(newsSettings).done((res) => {
         console.log(res);
-        // console.log(res.articles[0].title)
-
         newsResults = res;
         for (let i in res.articles) {
             let title = newsResults.articles[i].title;
@@ -52,7 +46,6 @@ $(function populateNews() {
     });
 
 });
-// populateNews();
 
 /////news api section end here/////
 
@@ -70,12 +63,9 @@ var igdbSettings = {
     "url": "https://api-endpoint.igdb.com/games/?order=popularity%3Adesc&fields=summary%2Cstoryline%2Curl%2Cname%2Cthemes.name%2Cgame.name%2Ccover&expand=game%2Cgenres%2Cthemes%2Cdevelopers",
     "method": "GET",
     "headers": {
-        "user-key": "ebb3db734a407207d7297d14332708f5",
-        // "access-control-allow-origin": "www.gameztracker.com",
-        // "Accept": "application/json",
-        // "Access-Control-Allow-Origin": "*", 
-        // "cache-control": "no-cache"
-        // "postman-token": "4716cfab-088a-e453-5795-cc5f9850cd64"
+        "user-key": "ebb3db734a407207d7297d14332708f5"
+        // "access-control-allow-origin": "*",
+        // "Accept": "application/json"
     }
 }
 {
@@ -85,14 +75,39 @@ function populatePopular() {
     $.ajax(igdbSettings).then((res, status) => {
         console.log(res);
         console.log(status);
-        // console.log('fk');
         popularResults = res;
+        for (let i in popularResults) {
+            let name = popularResults[i].name;
+            let genres = popularResults[i].genres.toString();
+            let coverUrl = popularResults[i].cover.cloudinary_id;
+            let summary = popularResults[i].summary;
+            let storyline = popularResults[i].storyline;
+            let url = popularResults[i].url;
+            let developer = popularResults[i].developers[0].name
+
+            $('#popular-games').append(
+                `
+                <li>
+                <div class="game-preview">
+                    <p>${name}</p>
+                    <div><img src="https://images.igdb.com/igdb/image/upload/t_cover_big/${coverUrl}"/>></div>
+                </div>
+                </li>
+                `
+
+            )
+
+        }
+
+
+
+
     }).fail(e => {
         console.log("error", e);
 
     });
 }
-// populatePopular();
+populatePopular();
 /////IGDB api section end here/////
 
 
@@ -158,11 +173,13 @@ let justDoIt = function popluateDeals() {
 let detailDealsResults = {};
 
 $('#detail-daily-deals').on('click', function () {
+    $('.error-message').empty();
     justDoIt();
 })
 
 $('#deals-search-filter').on('submit', (function (e) {
     e.preventDefault();
+    $('.error-message').empty();
     $('#table-here').empty();
     console.log(this);
     let title = $('#detail-search-input').val();
@@ -185,19 +202,27 @@ $('#deals-search-filter').on('submit', (function (e) {
         $.ajax(detailDealsSetting).done((res) => {
             console.log(res);
             detailDealsResults = res;
-            for (let i in detailDealsResults) {
-                let storeID = detailDealsResults[i].storeID
-                let storeNames = storeInfo[storeID - 1].storeName;
-                let dealUrl = `"https://www.cheapshark.com/redirect?dealID=${detailDealsResults[i].dealID}"`;
-                let title = detailDealsResults[i].title;
-                let dealRating = detailDealsResults[i].dealRating;
-                let salePrice = detailDealsResults[i].salePrice;
-                let normalPrice = detailDealsResults[i].normalPrice;
-                let savings = Math.round(detailDealsResults[i].savings);
-                let thumb = detailDealsResults[i].thumb;
-                let metacriticScore = detailDealsResults[i].metacriticScore;
-                $('#table-here').append(
-                    `
+            if (detailDealsResults.length == 0) {
+                // $('.error-message').empty();
+                $('.error-message').append(
+                    '<h1>Ops,no results</h1>'
+                )
+
+            }
+            else {
+                for (let i in detailDealsResults) {
+                    let storeID = detailDealsResults[i].storeID
+                    let storeNames = storeInfo[storeID - 1].storeName;
+                    let dealUrl = `"https://www.cheapshark.com/redirect?dealID=${detailDealsResults[i].dealID}"`;
+                    let title = detailDealsResults[i].title;
+                    let dealRating = detailDealsResults[i].dealRating;
+                    let salePrice = detailDealsResults[i].salePrice;
+                    let normalPrice = detailDealsResults[i].normalPrice;
+                    let savings = Math.round(detailDealsResults[i].savings);
+                    let thumb = detailDealsResults[i].thumb;
+                    let metacriticScore = detailDealsResults[i].metacriticScore;
+                    $('#table-here').append(
+                        `
                     <tr>
                     <td>${storeNames}</td>
                     <td>$ ${salePrice} / <del>$ ${normalPrice}</del></td>
@@ -207,12 +232,13 @@ $('#deals-search-filter').on('submit', (function (e) {
                     <td>${metacriticScore}</td>
                     </tr>
                     `
-                )
-            }
-            /////apply tablesorter after table generated/////
-            doIt();
-            /////apply tablesorter after table generated/////
+                    )
+                }
+                /////apply tablesorter after table generated/////
+                doIt();
+                /////apply tablesorter after table generated/////
 
+            }
         }).fail(e => {
             console.log("error", e);
         });

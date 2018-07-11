@@ -121,6 +121,27 @@ nav ul>li:hover {
     grid-area: searchbar;
 }
 
+#popular-games {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: 2;
+}
+
+#popular-games li {
+    display: inline-block;
+    text-align: center;
+}
+
+
+#popular-games img {
+    width: 10vw;
+    height: 15vw;
+}
+
+#popular-games img:hover {
+    opacity: 0.8;
+    outline:solid var(--tron-orange);
+}
 /* data-base end here */
 
 /* news modules */
@@ -181,6 +202,8 @@ label {
     width: 70vw;
     font-size: 1.2em;
     font-weight: bold;
+    grid-gap: 0.5em;
+    margin: 1em auto;
 }
 
 #deals-search-filter div:nth-child(1) {
