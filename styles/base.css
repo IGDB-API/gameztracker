@@ -102,7 +102,7 @@
      transform: skewX(-20deg);
  }
 
- .big-button:hover, .big-button:focus {
+ .big-button:hover {
      color: var(--tron-black);
      background-color: var(--tron-pane);
  }
