@@ -90,7 +90,6 @@
  .big-button {
      cursor: pointer;
      border: 1px solid var(--tron-blue);
-     margin: 0;
      padding: 0.5vw;
      width: auto;
      overflow: visible;
@@ -100,6 +99,8 @@
      font-weight: bold;
      transition-duration: 800ms;
      transform: skewX(-20deg);
+     margin: 0 0.5em;
+     
  }
 
  .big-button:hover {
