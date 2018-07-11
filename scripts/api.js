@@ -53,7 +53,7 @@ $(function populateNews() {
 
 });
 // populateNews();
-// author, description, publishedAt, url, urlToImage,title
+
 /////news api section end here/////
 
 
@@ -70,7 +70,8 @@ var igdbSettings = {
     "url": "https://api-endpoint.igdb.com/games/?order=popularity%3Adesc&fields=summary%2Cstoryline%2Curl%2Cname%2Cthemes.name%2Cgame.name%2Ccover&expand=game%2Cgenres%2Cthemes%2Cdevelopers",
     "method": "GET",
     "headers": {
-        "Access-Control-Allow-Origin": "https://www.gameztracker.com",
+        // "Access-Control-Allow-Origin": "https://www.gameztracker.com",
+        "Access-Control-Allow-Origin": "*",
         "user-key": "ebb3db734a407207d7297d14332708f5",
         "cache-control": "no-cache"
         // "postman-token": "4716cfab-088a-e453-5795-cc5f9850cd64"
@@ -141,15 +142,22 @@ $(function popluateDeals() {
             )
         }
         /////apply tablesorter after table generated/////
+       
         doIt();
         /////apply tablesorter after table generated/////
 
     }).fail(e => {
         console.log("error", e);
     });
-
+    
 });
 
 
 
+// $('#deals-search-filter').on('submit', (function (e) {
+//     e.preventDefault();
+//     console.log(this);
+//     $()
+//     // console.log(e);
+// }));
 /////CheapShark api section end here/////

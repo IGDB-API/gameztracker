@@ -76,7 +76,7 @@
  li, a {
      font-size: 1.1em;
      text-decoration: none;
-     color: inherit;
+     /* color: inherit; */
  }
 
  ul {
@@ -85,4 +85,24 @@
 
  input:focus {
      outline: none;
+ }
+
+ .big-button {
+     cursor: pointer;
+     border: 1px solid var(--tron-blue);
+     margin: 0;
+     padding: 0.5vw;
+     width: auto;
+     overflow: visible;
+     background: transparent;
+     color: var(--tron-blue);
+     margin: 0px;
+     font-weight: bold;
+     transition-duration: 800ms;
+     transform: skewX(-20deg);
+ }
+
+ .big-button:hover, .big-button:focus {
+     color: var(--tron-black);
+     background-color: var(--tron-pane);
  }
