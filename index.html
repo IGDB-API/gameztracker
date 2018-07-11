@@ -24,7 +24,7 @@
         <nav id="navbar">
             <div id="logo"></div>
             <div id="search-bar">
-                <input type="text" placeholder="Search game here..." id="search-input" />
+                <input type="text" placeholder="Quick search here..." class="search-input" />
                 <button class="search fas fa-search"></button>
                 <input type="text" id="testing" data-large-mode="true" data-large-default="true" data-theme="tron-style" />
             </div>
@@ -54,9 +54,51 @@
                 <h1>HEADLINES</h1>
             </div>
         </section>
-        <section class="container data-base">NO FREAKING WAY!!!</section>
+        <section class="container data-base">
+            <div id="data-base-search-bar">
+                <fieldset>
+                    <input type="text" placeholder="Search game here..." class="search-input" />
+                    <button type="submit" class="search fas fa-search">SEARCH</button>
+                </fieldset>
+            </div>
+
+        </section>
         <section class="container daily-deal">
             <!-- <div class="deals"> -->
+            <div>
+                <form action="/fk" id="deals-search-filter">
+
+                    <div>
+                        <input id="detail-search-input" type="text" placeholder="Search game title..." class="search-input" />
+                    </div>
+                    <div>
+                        <label for="price-range">Price Range:</label>
+                        <input id="price-range" type="range">
+                        <label for="score-range" title="Deal Rating is on a scale from 0 to 10.It factors in price, percent off,metacritic score,release date,price history,and more.">Deal Rating Range:</label>
+                        <input id="score-range" type="range">
+                    </div>
+                    <div>
+                        <span>Stores:</span>
+                        <label for="steam">
+                            <input id="steam" value="1" type="checkbox">Steam</label>
+
+                        <label for="amazon">
+                            <input id="amazon" value="4" type="checkbox">Amazon</label>
+
+                        <label for="gameStop">
+                            <input id="gameStop" value="5" type="checkbox">GameStop</label>
+
+                        <label for="humbleStore">
+                            <input id="humbleStore" value="11" type="checkbox">HumbleStore</label>
+
+                    </div>
+                    <div>
+                        <button id="detail-deals-search" class="big-button" type="submit">Apply Change</button>
+                        <button class="big-button" type="button">Daily top 50</button>
+                    </div>
+                </form>
+            </div>
+
             <table id="deals-table" class="tablesorter">
                 <thead>
                     <tr>
@@ -98,8 +140,7 @@
     <!-- CDN -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.js"></script>
-    <script src="https://mottie.github.io/tablesorter/js/jquery.tablesorter.js"></script>
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.30.1/js/jquery.tablesorter.min.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.30.1/js/jquery.tablesorter.min.js"></script>
     <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
     <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
     <!-- LOCAL JS -->

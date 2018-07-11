@@ -22,7 +22,7 @@ nav {
     /* justify-self: end; */
 }
 
-#search-input {
+.search-input {
     color: var(--tron-pane);
     font-weight: bold;
     border: none;
@@ -31,7 +31,7 @@ nav {
     background-color: black;
 }
 
-#search-input:focus, #search-input:hover {
+.search-input:focus, .search-input:hover {
     transition-duration: 0.5s;
     transform: scaleY(1.5);
     border-bottom: 2px solid var(--tron-blue);
@@ -105,6 +105,24 @@ nav ul>li:hover {
 
 /* header modules end here */
 
+/* data-base here */
+
+#data-base-search-bar {
+    /* text-align: center; */
+    display: grid;
+    grid-template-areas: "searchbar filter";
+    grid-template-columns: 1fr 1fr;
+    width: 65vw;
+    margin: auto;
+}
+
+#data-base-search-bar>input {
+    width: 25vw;
+    grid-area: searchbar;
+}
+
+/* data-base end here */
+
 /* news modules */
 
 .news-template {
@@ -144,8 +162,6 @@ nav ul>li:hover {
     width: 17vw;
     height: 10vw;
     margin: 1em auto;
-    /* transform: rotate(-342deg) scale(1.061) skew(22deg) translate(21px); */
-    /* transform: rotateX(10deg); */
     border-top: 2px solid var(--tron-blue);
     border-bottom: 2px solid var(--tron-blue);
 }
@@ -154,10 +170,59 @@ nav ul>li:hover {
 
 /* /////daily-deal section///// */
 
+label {
+    color: var(--tron-blue);
+}
+
+#deals-search-filter {
+    color: var(--tron-blue);
+    display: grid;
+    grid-template-areas: "search" "slider" "checkbox" "button";
+    width: 70vw;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+#deals-search-filter div:nth-child(1) {
+    grid-area: search;
+    margin: 1em auto;
+}
+
+#deals-search-filter div:nth-child(1)>.search-input {
+    width: 25vw;
+    font-size: 1.5em;
+}
+
+#deals-search-filter div:nth-child(1)>.search-input:hover {
+    transition-duration: 300ms;
+    transform: scaleX(1.2);
+    /* transform: scaleY(1); */
+}
+
+#deals-search-filter div:nth-child(1)>.search-input:focus {
+    transition-duration: 300ms;
+    transform: scaleX(1.2);
+}
+
+#deals-search-filter div:nth-child(2) {
+    grid-area: slider;
+    margin: auto;
+}
+
+#deals-search-filter div:nth-child(3) {
+    grid-area: checkbox;
+    margin: auto;
+}
+
+#deals-search-filter div:nth-child(4) {
+    grid-area: button;
+    margin: auto;
+}
+
 #deals-table {
     width: 65vw;
     margin: auto;
-    text-align: center;
+    /* text-align: center; */
 }
 
 table {
