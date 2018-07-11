@@ -70,10 +70,11 @@ var igdbSettings = {
     "url": "https://api-endpoint.igdb.com/games/?order=popularity%3Adesc&fields=summary%2Cstoryline%2Curl%2Cname%2Cthemes.name%2Cgame.name%2Ccover&expand=game%2Cgenres%2Cthemes%2Cdevelopers",
     "method": "GET",
     "headers": {
-        // "access-control-allow-origin:": "https://www.gameztracker.com",
-        "access-control-allow-origin": "*",
         "user-key": "ebb3db734a407207d7297d14332708f5",
-        "cache-control": "no-cache"
+        // "access-control-allow-origin": "www.gameztracker.com",
+        // "Accept": "application/json",
+        // "Access-Control-Allow-Origin": "*", 
+        // "cache-control": "no-cache"
         // "postman-token": "4716cfab-088a-e453-5795-cc5f9850cd64"
     }
 }
