@@ -113,9 +113,10 @@ $(function storeNames() {
 
 let dealsSetting = { "url": "https://www.cheapshark.com/api/1.0/deals?storeID=1,4,5,11&lowerPrice=0&pageSize=50" };
 
-$(function popluateDeals() {
+let justDoIt = function popluateDeals() {
     $.ajax(dealsSetting).done(function (res) {
         console.log(res);
+        $('#table-here').empty();
         dealsResults = res;
         for (let i in dealsResults) {
             let storeID = dealsResults[i].storeID
@@ -142,22 +143,83 @@ $(function popluateDeals() {
             )
         }
         /////apply tablesorter after table generated/////
-       
         doIt();
         /////apply tablesorter after table generated/////
 
     }).fail(e => {
         console.log("error", e);
     });
-    
-});
+
+};
+
+
+/////detail daily deails search/////
+let detailDealsResults = {};
+
+$('#detail-daily-deals').on('click', function () {
+    justDoIt();
+})
+
+$('#deals-search-filter').on('submit', (function (e) {
+    e.preventDefault();
+    $('#table-here').empty();
+    console.log(this);
+    let title = $('#detail-search-input').val();
+    let val = [];
+
+    $('input:checkbox:checked').each(function (i) {
+        val[i] = $(this).val();
+    });
+    // console.log(val);
+
+    var filterId = val.toString();
+    console.log(filterId);
 
 
 
-// $('#deals-search-filter').on('submit', (function (e) {
-//     e.preventDefault();
-//     console.log(this);
-//     $()
-//     // console.log(e);
-// }));
+    let detailDealsSetting = { "url": `https://www.cheapshark.com/api/1.0/deals?storeID=${filterId}&lowerPrice=0&title=${title}&pageSize=50` };
+    console.log(detailDealsSetting);
+
+    $(function popluateDeals() {
+        $.ajax(detailDealsSetting).done(function (res) {
+            console.log(res);
+            detailDealsResults = res;
+            for (let i in detailDealsResults) {
+                let storeID = detailDealsResults[i].storeID
+                let storeNames = storeInfo[storeID - 1].storeName;
+                let dealUrl = `"https://www.cheapshark.com/redirect?dealID=${detailDealsResults[i].dealID}"`;
+                let title = detailDealsResults[i].title;
+                let dealRating = detailDealsResults[i].dealRating;
+                let salePrice = detailDealsResults[i].salePrice;
+                let normalPrice = detailDealsResults[i].normalPrice;
+                let savings = Math.round(detailDealsResults[i].savings);
+                let thumb = detailDealsResults[i].thumb;
+                let metacriticScore = detailDealsResults[i].metacriticScore;
+                $('#table-here').append(
+                    `
+                    <tr>
+                    <td>${storeNames}</td>
+                    <td>$ ${salePrice} / <del>$ ${normalPrice}</del></td>
+                    <td>${savings} % </td>
+                    <td class="deals-title"><img class="deals-thumb" src="${thumb}"/><a href=${dealUrl} target="_blank">${title}</a></td>
+                    <td>${dealRating}</td>
+                    <td>${metacriticScore}</td>
+                    </tr>
+                    `
+                )
+            }
+            /////apply tablesorter after table generated/////
+            doIt();
+            /////apply tablesorter after table generated/////
+
+        }).fail(e => {
+            console.log("error", e);
+        });
+
+    });
+}));
+
+
+$(document).ready(justDoIt);
+
 /////CheapShark api section end here/////
