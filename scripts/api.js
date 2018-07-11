@@ -14,7 +14,7 @@ let newsSettings = {
 }
 
 $(function populateNews() {
-    $.ajax(newsSettings).done(function (res) {
+    $.ajax(newsSettings).done((res) => {
         console.log(res);
         // console.log(res.articles[0].title)
 
@@ -70,8 +70,8 @@ var igdbSettings = {
     "url": "https://api-endpoint.igdb.com/games/?order=popularity%3Adesc&fields=summary%2Cstoryline%2Curl%2Cname%2Cthemes.name%2Cgame.name%2Ccover&expand=game%2Cgenres%2Cthemes%2Cdevelopers",
     "method": "GET",
     "headers": {
-        // "Access-Control-Allow-Origin": "https://www.gameztracker.com",
-        "Access-Control-Allow-Origin": "*",
+        // "access-control-allow-origin:": "https://www.gameztracker.com",
+        "access-control-allow-origin": "*",
         "user-key": "ebb3db734a407207d7297d14332708f5",
         "cache-control": "no-cache"
         // "postman-token": "4716cfab-088a-e453-5795-cc5f9850cd64"
@@ -81,7 +81,7 @@ var igdbSettings = {
 
 }
 function populatePopular() {
-    $.ajax(igdbSettings).then(function (res, status) {
+    $.ajax(igdbSettings).then((res, status) => {
         console.log(res);
         console.log(status);
         // console.log('fk');
@@ -104,7 +104,7 @@ let storeInfo = {};
 // https://www.cheapshark.com/api/1.0/stores
 /////retrive StoreNames matching ID/////
 $(function storeNames() {
-    $.ajax("https://www.cheapshark.com/api/1.0/stores").done(function (res) {
+    $.ajax("https://www.cheapshark.com/api/1.0/stores").done((res) => {
         console.log(res);
         storeInfo = res;
 
@@ -114,7 +114,7 @@ $(function storeNames() {
 let dealsSetting = { "url": "https://www.cheapshark.com/api/1.0/deals?storeID=1,4,5,11&lowerPrice=0&pageSize=50" };
 
 let justDoIt = function popluateDeals() {
-    $.ajax(dealsSetting).done(function (res) {
+    $.ajax(dealsSetting).done((res) => {
         console.log(res);
         $('#table-here').empty();
         dealsResults = res;
@@ -181,7 +181,7 @@ $('#deals-search-filter').on('submit', (function (e) {
     console.log(detailDealsSetting);
 
     $(function popluateDeals() {
-        $.ajax(detailDealsSetting).done(function (res) {
+        $.ajax(detailDealsSetting).done((res) => {
             console.log(res);
             detailDealsResults = res;
             for (let i in detailDealsResults) {
