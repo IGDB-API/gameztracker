@@ -36,7 +36,7 @@
 
  h1 {
      /* font-weight: bold; */
-     font-size: 3em;
+     font-size: 2em;
      text-align: center;
      transform: rotateX(20deg);
      text-shadow: -2px -5px 15px;
@@ -47,7 +47,7 @@
      box-sizing: border-box;
  }
 
- body p, h1, h2, h3, h4, a, small, th, tr, td {
+ body p, h1, h2, h3, h4, a, small, th, tr, td,span {
      color: var(--tron-blue);
  }
 
@@ -74,9 +74,8 @@
  }
 
  li, a {
-     font-size: 1.1em;
+     font-size: 1em;
      text-decoration: none;
-     /* color: inherit; */
  }
 
  ul {
@@ -100,7 +99,6 @@
      transition-duration: 800ms;
      transform: skewX(-20deg);
      margin: 0 0.5em;
-     
  }
 
  .big-button:hover {
