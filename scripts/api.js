@@ -113,10 +113,14 @@ populatePopular();
 
 $('#popular-games').on('click', 'img', function () {
     console.log(this.id);
+    $('#popular-games-detail').hide();
     $("#popular-games-detail").empty();
-    $('#nike').empty();
-
+    $('#popular-games-detail').fadeIn(200);
+    
+    
     for (let j in popularResults) {
+        
+        
         if ((this.id) == popularResults[j].id) {
             let name = popularResults[j].name;
             let genres = popularResults[j].genres;
@@ -126,20 +130,21 @@ $('#popular-games').on('click', 'img', function () {
             let storyline = popularResults[j].storyline;
             let url = popularResults[j].url;
             let developer = popularResults[j].developers[0].name;
-
+            
             // <p>${storyline}</p>
-
+            
             $("#popular-games-detail").append(
                 `
-              
+                
                 <img src="https://images.igdb.com/igdb/image/upload/t_cover_big/${coverUrl}"/>
-               
+                
                 <h2>${name}</h2><span class="fas fa-window-close"></span>
                 <div>
-                <p id="genres">Genres: </p>
-                <p id="platforms">Platforms: </p>
-                <p>Developler: ${developer}</p>
-                <p>Summary: ${summary}</p>
+                <p id="genres"><strong>Genres: </strong></p><br>
+                <p id="platforms"><strong>Platforms: </strong></p><br>
+                <p><strong>Developler: </strong>${developer}</p><br>
+                <p><strong>Summary: </strong>${summary}</p>
+                <br>
                 <a href=${url} target="_blank" class="fas fa-external-link-alt">More Detail</a>
                 </div>
                 `
@@ -150,9 +155,11 @@ $('#popular-games').on('click', 'img', function () {
             for (let l in platforms) {
                 $('#platforms').append(` "${platforms[l].name}" `);
             }
-
+            
         }
     }
+    
+    showPopUp();
 })
 /////IGDB api section end here/////
 

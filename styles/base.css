@@ -47,7 +47,7 @@
      box-sizing: border-box;
  }
 
- body p, h1, h2, h3, h4, a, small, th, tr, td,span {
+ body p, h1, h2, h3, h4, a, small, th, tr, td, span {
      color: var(--tron-blue);
  }
 
@@ -76,6 +76,11 @@
  li, a {
      font-size: 1em;
      text-decoration: none;
+ }
+
+ strong {
+     font-weight: bold;
+     color:var(--tron-blue);
  }
 
  ul {
