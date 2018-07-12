@@ -47,6 +47,7 @@ $(function populateNews() {
 
 });
 
+
 /////news api section end here/////
 
 
@@ -60,7 +61,7 @@ let popularResults = {};
 var igdbSettings = {
     "async": true,
     "crossDomain": true,
-    "url": "https://api-endpoint.igdb.com/games/?order=popularity%3Adesc&fields=summary%2Cstoryline%2Curl%2Cname%2Cthemes.name%2Cgame.name%2Ccover&expand=game%2Cgenres%2Cthemes%2Cdevelopers",
+    "url": "https://api-endpoint.igdb.com/games/?order=popularity%3Adesc&fields=summary%2Cstoryline%2Curl%2Cname%2Cthemes.name%2Cgame.name%2Ccover%2Cplatforms&expand=game%2Cgenres%2Cthemes%2Cdevelopers%2Cplatforms",
     "method": "GET",
     "headers": {
         "user-key": "ebb3db734a407207d7297d14332708f5"
@@ -77,20 +78,21 @@ function populatePopular() {
         console.log(status);
         popularResults = res;
         for (let i in popularResults) {
+            let id = popularResults[i].id;
             let name = popularResults[i].name;
-            let genres = popularResults[i].genres.toString();
+            // let genres = popularResults[i].genres.toString();
             let coverUrl = popularResults[i].cover.cloudinary_id;
-            let summary = popularResults[i].summary;
-            let storyline = popularResults[i].storyline;
-            let url = popularResults[i].url;
-            let developer = popularResults[i].developers[0].name
+            // let summary = popularResults[i].summary;
+            // let storyline = popularResults[i].storyline;
+            // let url = popularResults[i].url;
+            // let developer = popularResults[i].developers[0].name
 
             $('#popular-games').append(
                 `
                 <li>
                 <div class="game-preview">
                     <p>${name}</p>
-                    <div><img src="https://images.igdb.com/igdb/image/upload/t_cover_big/${coverUrl}"/>></div>
+                    <div><img src="https://images.igdb.com/igdb/image/upload/t_cover_big/${coverUrl}" id="${id}"/></div>
                 </div>
                 </li>
                 `
@@ -108,6 +110,57 @@ function populatePopular() {
     });
 }
 populatePopular();
+
+$('#popular-games').on('click', 'img', function () {
+    console.log(this.id);
+    $('#popular-games-detail').hide();
+    $("#popular-games-detail").empty();
+    $('#popular-games-detail').fadeIn(200);
+    
+    
+    for (let j in popularResults) {
+        
+        
+        if ((this.id) == popularResults[j].id) {
+            let name = popularResults[j].name;
+            let genres = popularResults[j].genres;
+            let platforms = popularResults[j].platforms;
+            let coverUrl = popularResults[j].cover.cloudinary_id;
+            let summary = popularResults[j].summary;
+            let storyline = popularResults[j].storyline;
+            let url = popularResults[j].url;
+            let developer = popularResults[j].developers[0].name;
+            
+            // <p>${storyline}</p>
+            
+            $("#popular-games-detail").append(
+                `
+                
+                <img src="https://images.igdb.com/igdb/image/upload/t_cover_big/${coverUrl}"/>
+                
+                <h2>${name}</h2><span class="fas fa-window-close"></span>
+                <div>
+                <p id="genres"><strong>Genres: </strong></p><br>
+                <p id="platforms"><strong>Platforms: </strong></p><br>
+                <p><strong>Developler: </strong>${developer}</p><br>
+                <p><strong>Summary: </strong>${summary}</p>
+                <br>
+                <a href=${url} target="_blank" class="fas fa-external-link-alt">More Detail</a>
+                </div>
+                `
+            )
+            for (let k in genres) {
+                $('#genres').append(` "${genres[k].name}" `);
+            }
+            for (let l in platforms) {
+                $('#platforms').append(` "${platforms[l].name}" `);
+            }
+            
+        }
+    }
+    
+    showPopUp();
+})
 /////IGDB api section end here/////
 
 
@@ -175,12 +228,15 @@ let detailDealsResults = {};
 $('#detail-daily-deals').on('click', function () {
     $('.error-message').empty();
     justDoIt();
+    $('.search-input').val('');
 })
 
 $('#deals-search-filter').on('submit', (function (e) {
     e.preventDefault();
     $('.error-message').empty();
     $('#table-here').empty();
+
+
     console.log(this);
     let title = $('#detail-search-input').val();
     let val = [];
@@ -236,6 +292,7 @@ $('#deals-search-filter').on('submit', (function (e) {
                 }
                 /////apply tablesorter after table generated/////
                 doIt();
+                $('.search-input').val('');
                 /////apply tablesorter after table generated/////
 
             }

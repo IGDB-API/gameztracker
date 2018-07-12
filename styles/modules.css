@@ -52,6 +52,18 @@ nav {
     transform: scale(1.2);
 }
 
+#testing {
+    font-family: 'Play', sans-serif;
+    font-size: 1em;
+    text-align: center;
+    color: var(--tron-blue);
+    background-color: transparent;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    cursor: pointer;
+}
+
 .fa-cog {
     grid-area: cog;
     font-size: 2em;
@@ -132,16 +144,65 @@ nav ul>li:hover {
     text-align: center;
 }
 
-
 #popular-games img {
     width: 10vw;
-    height: 15vw;
+    height: 14vw;
 }
 
 #popular-games img:hover {
     opacity: 0.8;
-    outline:solid var(--tron-orange);
+    outline: solid var(--tron-orange);
 }
+
+#popular-games-detail {
+    position: fixed;
+    display: grid;
+    width: 60vw;
+    grid-template-columns: 1fr 2fr;
+    grid-template-areas: "img h2" "img div" "img div";
+    margin: 0px auto;
+    background-color: rgb(78, 78, 78, 0.9);
+    padding: 1em;
+    top:30vh;
+    left:10vw;
+    z-index: 5;
+
+}
+
+.fa-window-close {
+    font-size: 2em;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+}
+
+.fa-window-close:hover {
+    color: var(--tron-pane);
+    transition-duration: 300ms;
+    cursor: pointer;
+}
+
+#popular-games-detail img {
+    grid-area: img;
+    width: 15vw;
+    height: 21vw;
+    object-fit: fill;
+    margin: auto;
+}
+
+#popular-games-detail h2 {
+    grid-area: h2;
+    font-size: 1.3em;
+    text-shadow: -2px -2px 15px;
+    margin: 1em;
+}
+
+#popular-games-detail div p {
+    grid-area: div;
+    color: var(--tron-pane);
+    text-shadow: -2px -2px 15px;
+}
+
 /* data-base end here */
 
 /* news modules */
@@ -251,6 +312,7 @@ label {
 table {
     border-collapse: separate;
     border-spacing: 0.5em;
+    text-align: center;
 }
 
 .deals-thumb {
@@ -284,9 +346,13 @@ th {
     z-index: 10;
 }
 
+.scroll-top:hover {
+    transition-duration: 300ms;
+    color: var(--tron-pane);
+}
+
 footer p {
     color: var(--tron-blue);
-    /* background-color: var(--tron-black); */
     text-align: center;
     margin: auto;
 }
@@ -295,21 +361,31 @@ footer ul>li {
     display: inline-block;
     width: 40px;
     height: 40px;
-    /* margin: auto; */
-    margin-right: 1em;
+    margin: 0 1em;
+}
+
+#news-logo {
+    background-image: url("https://pbs.twimg.com/profile_images/942571181051400192/rudqtcNK_400x400.jpg");
+    background-size: cover;
+    margin: auto;
 }
 
 #igdb-logo {
     background-image: url("../src/igdb-logo.png");
     background-size: cover;
-    width: 30px;
-    height: 30px;
+    margin: auto;
+}
+
+#cheap-shark {
+    background-image: url("https://www.cheapshark.com/img/logo_image.png");
+    background-size: cover;
     margin: auto;
 }
 
 .footer-mid {
     grid-area: footer-mid;
     margin: auto;
+    text-align: center;
 }
 
 .footer-right {

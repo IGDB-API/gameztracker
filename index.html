@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="./styles/particle.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt"
         crossorigin="anonymous">
+    <link rel="icon" href="./src/favicon.ico">
     <link href="https://fonts.googleapis.com/css?family=Play|Russo+One" rel="stylesheet">
 </head>
 
@@ -61,17 +62,20 @@
                     <button type="submit" class="search fas fa-search">SEARCH</button>
                 </fieldset>
             </div>
+            <h1>Top Trending Games</h1>
+            <div id="popular-games-detail"></div>
             <div>
                 <ul id="popular-games">
 
                 </ul>
             </div>
+          
 
         </section>
         <section class="container daily-deal">
             <!-- <div class="deals"> -->
             <div>
-                <form action="/fk" id="deals-search-filter">
+                <form action="" id="deals-search-filter">
 
                     <div>
                         <input id="detail-search-input" type="text" placeholder="Search game title..." class="search-input" />
@@ -129,17 +133,16 @@
 
     <footer>
         <div class="footer-mid">
-            <p>&copy;IGDB-API-2018&nbsp All Rights Reserved</p>
-            <p>Created by Chi</p>
-        </div>
-        <div class="footer-right">
+            <br>
+            <p>&copy;Game Tracker 2018&nbsp All Rights Reserved</p>
             <p>Powered By</p>
             <ul>
-                <li>
-                    <a href="https://newsapi.org/" target="_blank">News API</a>
-                </li>
+                <li id="news-logo"></li>
                 <li id="igdb-logo"></li>
+                <li id="cheap-shark"></li>
             </ul>
+        </div>
+        <div class="footer-right">
         </div>
     </footer>
 

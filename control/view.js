@@ -64,3 +64,23 @@ $("#section-data-base").on('click', function (e) {
 })
 
 /////views for all pages end here/////
+
+/////hide detail popup/////
+$('#popular-games-detail').hide();
+
+
+
+$('#popular-games-detail').on('click', 'span', function () {
+    $('#popular-games-detail').hide();
+})
+
+function showPopUp() {
+    $('#popular-games-detail img').hide();
+    $('#popular-games-detail h2').hide();
+    $('#popular-games-detail div').hide();
+    $('#popular-games-detail h2').show(600);
+    $('#popular-games-detail img').fadeIn(800);
+    $('#popular-games-detail div').slideDown(800);
+}
+/////hide detail popup end here/////
+

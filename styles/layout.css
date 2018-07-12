@@ -34,7 +34,7 @@ footer {
     grid-template-areas: ". footer-mid footer-right";
     background-color: black;
     /* width:100vw; */
-    height: 10vh;
+    min-height: 10vh;
     opacity: 0.8;
 }
 
