@@ -1,4 +1,4 @@
- /* tron blue =  #6ddad3 */
+ /* tron blue = #6ddad3 */
 
  /* tron orange = #DF740C */
 
@@ -10,9 +10,11 @@
 
  /* global variable */
 
- /* font-family: 'Play', sans-serif; */
+ /* font-family: 'Play', sans-serif;
+ */
 
- /* font-family: 'Russo One', sans-serif; */
+ /* font-family: 'Russo One', sans-serif;
+ */
 
  :root {
      --tron-yellow: #FFE64D;
@@ -35,7 +37,8 @@
  }
 
  h1 {
-     /* font-weight: bold; */
+     /* font-weight: bold;
+    */
      font-size: 2em;
      text-align: center;
      transform: rotateX(20deg);
@@ -54,7 +57,8 @@
  body {
      max-width: 100%;
      margin: auto;
-     /* width: 80%; */
+     /* width: 80%;
+    */
      background-color: var(--tron-black);
  }
 
@@ -80,7 +84,7 @@
 
  strong {
      font-weight: bold;
-     color:var(--tron-blue);
+     color: var(--tron-blue);
  }
 
  ul {

@@ -152,21 +152,55 @@ nav ul>li:hover {
 #popular-games img:hover {
     opacity: 0.8;
     outline: solid var(--tron-orange);
+    cursor: pointer;
 }
 
 #popular-games-detail {
     position: fixed;
     display: grid;
-    width: 60vw;
+    width: 50vw;
     grid-template-columns: 1fr 2fr;
     grid-template-areas: "img h2" "img div" "img div";
     margin: 0px auto;
     background-color: rgb(78, 78, 78, 0.9);
     padding: 1em;
-    top:30vh;
-    left:10vw;
-    z-index: 5;
+    top: 30vh;
+    left: 8vw;
+    height: 55vh;
+    overflow: auto;
+    z-index: 10;
+}
 
+#quick-search-popup {
+    position: fixed;
+    width: 30vw;
+    margin: 0px auto;
+    background-color: rgb(78, 78, 78, 0.9);
+    padding: 0.5em;
+    top: 20vh;
+    right: 10vw;
+    height: 70vh;
+    overflow: auto;
+    z-index: 6;
+}
+
+#quick-search-popup>li {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    /* grid-template-areas: "quick-search-img quick-search-title"; */
+}
+
+#quick-search-popup img {
+    /* grid-area: quick-search-img; */
+    width: 12vw;
+    height: 7vw;
+    object-fit: contain;
+    padding: 0.5em;
+}
+
+#quick-search-popup p {
+    /* grid-area: quick-search-title; */
+    margin: auto;
 }
 
 .fa-window-close {
@@ -188,6 +222,7 @@ nav ul>li:hover {
     height: 21vw;
     object-fit: fill;
     margin: auto;
+    /* cursor: pointer; */
 }
 
 #popular-games-detail h2 {
@@ -254,6 +289,7 @@ nav ul>li:hover {
 
 label {
     color: var(--tron-blue);
+    margin: 0.5em;
 }
 
 #deals-search-filter {
@@ -359,27 +395,27 @@ footer p {
 
 footer ul>li {
     display: inline-block;
-    width: 40px;
-    height: 40px;
-    margin: 0 1em;
+    width: 25px;
+    height: 25px;
+    margin: 0 0.5em;
 }
 
 #news-logo {
     background-image: url("https://pbs.twimg.com/profile_images/942571181051400192/rudqtcNK_400x400.jpg");
     background-size: cover;
-    margin: auto;
+    /* margin: auto; */
 }
 
 #igdb-logo {
     background-image: url("../src/igdb-logo.png");
     background-size: cover;
-    margin: auto;
+    /* margin: auto; */
 }
 
 #cheap-shark {
     background-image: url("https://www.cheapshark.com/img/logo_image.png");
     background-size: cover;
-    margin: auto;
+    /* margin: auto; */
 }
 
 .footer-mid {
@@ -391,6 +427,10 @@ footer ul>li {
 .footer-right {
     grid-area: footer-right;
     margin: auto;
+}
+
+.fa-spinner {
+    animation: spinner 1s linear infinite;
 }
 
 /* //footer end here// */
