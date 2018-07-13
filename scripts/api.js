@@ -69,9 +69,7 @@ var igdbSettings = {
         // "Accept": "application/json"
     }
 }
-{
 
-}
 function populatePopular() {
     $.ajax(igdbSettings).then((res, status) => {
         console.log(res);
@@ -80,12 +78,7 @@ function populatePopular() {
         for (let i in popularResults) {
             let id = popularResults[i].id;
             let name = popularResults[i].name;
-            // let genres = popularResults[i].genres.toString();
             let coverUrl = popularResults[i].cover.cloudinary_id;
-            // let summary = popularResults[i].summary;
-            // let storyline = popularResults[i].storyline;
-            // let url = popularResults[i].url;
-            // let developer = popularResults[i].developers[0].name
 
             $('#popular-games').append(
                 `
@@ -101,12 +94,8 @@ function populatePopular() {
 
         }
 
-
-
-
     }).fail(e => {
         console.log("error", e);
-
     });
 }
 populatePopular();
@@ -116,11 +105,10 @@ $('#popular-games').on('click', 'img', function () {
     $('#popular-games-detail').hide();
     $("#popular-games-detail").empty();
     $('#popular-games-detail').fadeIn(200);
-    
-    
+
+
     for (let j in popularResults) {
-        
-        
+
         if ((this.id) == popularResults[j].id) {
             let name = popularResults[j].name;
             let genres = popularResults[j].genres;
@@ -130,9 +118,9 @@ $('#popular-games').on('click', 'img', function () {
             let storyline = popularResults[j].storyline;
             let url = popularResults[j].url;
             let developer = popularResults[j].developers[0].name;
-            
+
             // <p>${storyline}</p>
-            
+
             $("#popular-games-detail").append(
                 `
                 
@@ -145,7 +133,7 @@ $('#popular-games').on('click', 'img', function () {
                 <p><strong>Developler: </strong>${developer}</p><br>
                 <p><strong>Summary: </strong>${summary}</p>
                 <br>
-                <a href=${url} target="_blank" class="fas fa-external-link-alt">More Detail</a>
+                <a href=${url} target="_blank" class="fas fa-external-link-alt"> More Detail</a>
                 </div>
                 `
             )
@@ -155,12 +143,134 @@ $('#popular-games').on('click', 'img', function () {
             for (let l in platforms) {
                 $('#platforms').append(` "${platforms[l].name}" `);
             }
-            
+
         }
     }
-    
+
     showPopUp();
 })
+
+
+///// IGDB quick search here/////
+// https://api-endpoint.igdb.com/games/?search=halo&fields=summary,storyline,url,name,themes.name,game.name,cover,hypes,popularity,platforms&filter[rating][gt]=50&expand=game,genres,themes,developers,game_modes
+
+
+let quickSearchResults = {};
+$('#quick-search-form').on('submit', function (e) {
+    e.preventDefault();
+    $('#quick-search-popup li').empty();
+    $('#quick-search-popup').show(200);
+    $('#quick-search-popup span').show(200);
+    let searchTitle = $('#quick-search-input').val();
+    let quickSearchSettings = {
+        "async": true,
+        "crossDomain": true,
+        "url": `https://api-endpoint.igdb.com/games/?search=${searchTitle}&fields=summary,storyline,url,name,themes.name,game.name,cover,hypes,popularity,platforms&expand=game,genres,themes,developers,game_modes,platforms`,
+        "method": "GET",
+        "headers": {
+            "user-key": "ebb3db734a407207d7297d14332708f5"
+            // "access-control-allow-origin": "*",
+            // "Accept": "application/json"
+        }
+    }
+
+    $(function quickSearch() {
+        $.ajax(quickSearchSettings).then((res, status) => {
+            quickSearchResults = res;
+            console.log(res);
+            for (let i in quickSearchResults) {
+                let id = quickSearchResults[i].id;
+                let name = quickSearchResults[i].name;
+                if (typeof (quickSearchResults[i].cover) == "undefined") {
+                    var coverUrl = "u-fuck";
+                    console.log(coverUrl);
+                }
+                else {
+                    var coverUrl = quickSearchResults[i].cover.cloudinary_id;
+                    console.log(coverUrl);
+                }
+
+
+                $('#quick-search-popup').append(
+                    `
+                    <li>
+                    <img src="https://images.igdb.com/igdb/image/upload/t_logo_med/${coverUrl}" id="${id}"/>
+                    <p>${name}</p>
+                    </li>
+                    `
+                )
+            }
+        })
+    }).fail(e => {
+        console.log("error", e);
+    })
+});
+
+$('#quick-search-popup').on('click', 'img', function () {
+    console.log(this.id);
+    $('#popular-games-detail').hide();
+    $('#popular-games-detail').empty();
+    $('#popular-games-detail').fadeIn(200);
+
+
+    for (let j in quickSearchResults) {
+
+        if ((this.id) == quickSearchResults[j].id) {
+            let name = quickSearchResults[j].name;
+            let genres = quickSearchResults[j].genres;
+            let platforms = quickSearchResults[j].platforms;
+
+            // let coverUrl = quickSearchResults[j].cover.cloudinary_id;
+            if (typeof (quickSearchResults[j].cover) == "undefined") {
+                var coverUrl = "u-fuck";
+                console.log(coverUrl);
+            }
+            else {
+                var coverUrl = quickSearchResults[j].cover.cloudinary_id;
+                console.log(coverUrl);
+            }
+            let summary = quickSearchResults[j].summary;
+            let storyline = quickSearchResults[j].storyline;
+            let url = quickSearchResults[j].url;
+            if (typeof (quickSearchResults[j].developer) == "undefined") {
+                var developer = " MissingData ";
+            }
+            else {
+
+                var developer = quickSearchResults[j].developers[0].name;
+            }
+            // <p>${storyline}</p>
+
+            $("#popular-games-detail").append(
+                `
+                
+                <img src="https://images.igdb.com/igdb/image/upload/t_cover_big/${coverUrl}"/>
+                
+                <h2>${name}</h2><span class="fas fa-window-close"></span>
+                <div>
+                <p id="genres"><strong>Genres: </strong></p><br>
+                <p id="platforms"><strong>Platforms: </strong></p><br>
+                <p><strong>Developler: </strong>${developer}</p><br>
+                <p><strong>Summary: </strong>${summary}</p>
+                <br>
+                <a href=${url} target="_blank" class="fas fa-external-link-alt"> More Detail</a>
+                </div>
+                `
+            )
+            for (let k in genres) {
+                $('#genres').append(` "${genres[k].name}" `);
+            }
+            for (let l in platforms) {
+                $('#platforms').append(` "${platforms[l].name}" `);
+            }
+
+        }
+    }
+
+    showPopUp();
+})
+
+
 /////IGDB api section end here/////
 
 
@@ -186,6 +296,7 @@ let justDoIt = function popluateDeals() {
     $.ajax(dealsSetting).done((res) => {
         console.log(res);
         $('#table-here').empty();
+
         dealsResults = res;
         for (let i in dealsResults) {
             let storeID = dealsResults[i].storeID
@@ -221,7 +332,6 @@ let justDoIt = function popluateDeals() {
 
 };
 
-
 /////detail daily deails search/////
 let detailDealsResults = {};
 
@@ -229,6 +339,7 @@ $('#detail-daily-deals').on('click', function () {
     $('.error-message').empty();
     justDoIt();
     $('.search-input').val('');
+
 })
 
 $('#deals-search-filter').on('submit', (function (e) {
@@ -236,30 +347,29 @@ $('#deals-search-filter').on('submit', (function (e) {
     $('.error-message').empty();
     $('#table-here').empty();
 
-
-    console.log(this);
+    /////title/////
     let title = $('#detail-search-input').val();
+    /////checkbox value/////
     let val = [];
-
     $('input:checkbox:checked').each(function (i) {
         val[i] = $(this).val();
     });
-    // console.log(val);
-
     var filterId = val.toString();
     console.log(filterId);
+    /////price range/////
+    var upperPrice = $('#price_range_disp').text();
+    /////metacritc score/////
+    var metacritic = $('#score_range_disp').text();
 
-
-
-    let detailDealsSetting = { "url": `https://www.cheapshark.com/api/1.0/deals?storeID=${filterId}&lowerPrice=0&title=${title}&pageSize=50` };
+    // console.log(val);
+    let detailDealsSetting = { "url": `https://www.cheapshark.com/api/1.0/deals?storeID=${filterId}&upperPrice=${upperPrice}&metacritic=${metacritic}&title=${title}&pageSize=50` };
     console.log(detailDealsSetting);
 
-    $(function popluateDeals() {
+    $(function popluateDetailDeals() {
         $.ajax(detailDealsSetting).done((res) => {
             console.log(res);
             detailDealsResults = res;
             if (detailDealsResults.length == 0) {
-                // $('.error-message').empty();
                 $('.error-message').append(
                     '<h1>Ops,no results</h1>'
                 )

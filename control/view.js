@@ -45,7 +45,9 @@ function doIt() {
 /////views for all pages/////
 $(function () {
     $('.container').hide();
-    $('.news').show(100);
+    // $('#popular-games-detail').hide();
+    // $('#quick-search-popup').hide();
+    $('.news').show();
 })
 $("#section-news").on('click', function (e) {
     e.preventDefault();
@@ -66,12 +68,14 @@ $("#section-data-base").on('click', function (e) {
 /////views for all pages end here/////
 
 /////hide detail popup/////
-$('#popular-games-detail').hide();
+$(function () {
+    $('#popular-games-detail').hide();
+    $('#quick-search-popup').hide();
 
-
+})
 
 $('#popular-games-detail').on('click', 'span', function () {
-    $('#popular-games-detail').hide();
+    $('#popular-games-detail').fadeOut(500);
 })
 
 function showPopUp() {
@@ -83,4 +87,25 @@ function showPopUp() {
     $('#popular-games-detail div').slideDown(800);
 }
 /////hide detail popup end here/////
+
+/////hide quick search popup/////
+
+$('#quick-search-popup').on('click', 'span', function () {
+    $('#quick-search-popup').fadeOut(500);
+})
+
+
+/////hide quick search popup end here/////
+
+
+/////multi slider display/////
+
+/////multi slider display end here/////
+
+
+// $(window).load(function(){
+//     // PAGE IS FULLY LOADED  
+//     // FADE OUT YOUR OVERLAYING DIV
+//     $('.loader').fadeOut(300);
+//  });
 

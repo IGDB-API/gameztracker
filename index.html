@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="./styles/particle.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt"
         crossorigin="anonymous">
+    <link rel="stylesheet" href="./styles/multirange.css">
     <link rel="icon" href="./src/favicon.ico">
     <link href="https://fonts.googleapis.com/css?family=Play|Russo+One" rel="stylesheet">
 </head>
@@ -24,10 +25,13 @@
     <header>
         <nav id="navbar">
             <div id="logo"></div>
+
             <div id="search-bar">
-                <input type="text" placeholder="Quick search here..." class="search-input" />
-                <button class="search fas fa-search"></button>
-                <input type="text" id="testing" data-large-mode="true" data-large-default="true" data-theme="tron-style" />
+                <form action="" id="quick-search-form">
+                    <input id="quick-search-input" type="text" placeholder="Quick search here..." class="search-input" />
+                    <button type="submit" class="search fas fa-search"></button>
+                    <input type="text" id="testing" data-large-mode="true" data-large-default="true" data-theme="tron-style" />
+                </form>
             </div>
             <div class="fas fa-cog"></div>
 
@@ -50,26 +54,29 @@
     </header>
 
     <main>
+        <ul id="quick-search-popup">
+            <span class="fas fa-window-close"></span>
+        </ul>
+        <div id="popular-games-detail"></div>
         <section class="container news">
             <div class="header-perspective">
                 <h1>HEADLINES</h1>
             </div>
         </section>
         <section class="container data-base">
-            <div id="data-base-search-bar">
+            <!-- <div id="data-base-search-bar">
                 <fieldset>
                     <input type="text" placeholder="Search game here..." class="search-input" />
                     <button type="submit" class="search fas fa-search">SEARCH</button>
                 </fieldset>
-            </div>
+            </div> -->
             <h1>Top Trending Games</h1>
-            <div id="popular-games-detail"></div>
             <div>
                 <ul id="popular-games">
 
                 </ul>
             </div>
-          
+
 
         </section>
         <section class="container daily-deal">
@@ -81,10 +88,13 @@
                         <input id="detail-search-input" type="text" placeholder="Search game title..." class="search-input" />
                     </div>
                     <div>
-                        <label for="price-range">Price Range:</label>
-                        <input id="price-range" type="range">
-                        <label for="score-range" title="Deal Rating is on a scale from 0 to 10.It factors in price, percent off,metacritic score,release date,price history,and more.">Deal Rating Range:</label>
-                        <input id="score-range" type="range">
+                        <label for="price_range">Price Range: $ 0</label>
+                        <input id="price_range" value="30" type="range" min="0" max="200" oninput="price_range_disp.value = price_range.value">
+                        <span>$</span>
+                        <output id="price_range_disp">30</output>
+                        <label for="score-range" title="Deal Rating is on a scale from 0 to 10.It factors in price, percent off,metacritic score,release date,price history,and more.">Metacritic:</label>
+                        <input id="score_range" value="0" type="range" min="0" max="100" oninput="score_range_disp.value=score_range.value">
+                        <output id="score_range_disp">0</output>
                     </div>
                     <div>
                         <span>Stores:</span>
@@ -107,7 +117,6 @@
                     </div>
                 </form>
             </div>
-
             <table id="deals-table" class="tablesorter">
                 <thead>
                     <tr>
@@ -119,6 +128,7 @@
                         <th>METACRITIC</th>
                     </tr>
                 </thead>
+
                 <tbody id="table-here">
                 </tbody>
 
@@ -135,15 +145,21 @@
         <div class="footer-mid">
             <br>
             <p>&copy;Game Tracker 2018&nbsp All Rights Reserved</p>
+
             <p>Powered By</p>
+
             <ul>
                 <li id="news-logo"></li>
                 <li id="igdb-logo"></li>
                 <li id="cheap-shark"></li>
             </ul>
         </div>
-        <div class="footer-right">
-        </div>
+        <!-- <div class="footer-right">
+            <div class="loader">
+                <span class="fas fa-spinner"></span>
+                <p>loading...</p>
+            </div>
+        </div> -->
     </footer>
 
     <!-- CDN -->
@@ -155,6 +171,7 @@
     <!-- LOCAL JS -->
     <script src="./scripts/app.js"></script>
     <script src="./scripts/index.js"></script>
+    <script src="./scripts/multirange.js"></script>
     <script src="./scripts/datedropper.js"></script>
     <script src="./control/view.js"></script>
     <script src="./scripts/api.js"></script>
