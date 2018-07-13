@@ -114,3 +114,14 @@
      color: var(--tron-black);
      background-color: var(--tron-pane);
  }
+
+ ::-webkit-scrollbar {
+    width: 0.3em;
+}
+ ::-webkit-scrollbar-thumb {
+     background: var(--tron-blue);
+ }
+
+ ::-webkit-scrollbar-thumb:hover{
+    background: var(--tron-pane);
+}
