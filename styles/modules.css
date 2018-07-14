@@ -91,6 +91,14 @@ nav {
     }
 }
 
+.fa-bars{
+    grid-area:fa-bars;
+    display: none !important;
+    font-size: 2em;
+}
+.fa-bars:hover{
+    color:var(--tron-pane);
+}
 nav ul {
     grid-area: ul;
     margin: auto;
@@ -156,11 +164,9 @@ nav ul>li:hover {
 }
 
 #popular-games-detail {
+    display: none;
     position: fixed;
-    display: grid;
     width: 50vw;
-    grid-template-columns: 1fr 2fr;
-    grid-template-areas: "img h2" "img div" "img div";
     margin: 0px auto;
     background-color: rgb(78, 78, 78, 0.9);
     padding: 1em;
@@ -171,7 +177,14 @@ nav ul>li:hover {
     z-index: 10;
 }
 
+#popular-games-detail>div {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-areas: "img h2" "img div" "img div";
+}
+
 #quick-search-popup {
+    display: none;
     position: fixed;
     width: 30vw;
     margin: 0px auto;
@@ -198,6 +211,12 @@ nav ul>li:hover {
     padding: 0.5em;
 }
 
+#quick-search-popup img:hover {
+    opacity: 0.8;
+    outline: solid var(--tron-orange);
+    cursor: pointer;
+}
+
 #quick-search-popup p {
     /* grid-area: quick-search-title; */
     margin: auto;
@@ -222,20 +241,19 @@ nav ul>li:hover {
     height: 21vw;
     object-fit: fill;
     margin: auto;
-    /* cursor: pointer; */
 }
 
 #popular-games-detail h2 {
     grid-area: h2;
     font-size: 1.3em;
-    text-shadow: -2px -2px 15px;
+    /* text-shadow: -2px -2px 20px; */
     margin: 1em;
 }
 
 #popular-games-detail div p {
     grid-area: div;
     color: var(--tron-pane);
-    text-shadow: -2px -2px 15px;
+    /* text-shadow: -2px -2px 20px; */
 }
 
 /* data-base end here */
@@ -247,7 +265,6 @@ nav ul>li:hover {
     grid-template-columns: 2fr 1fr;
     grid-template-areas: "news-left img";
     margin: auto;
-    /* width: 65vw; */
     perspective: 1000px;
 }
 
@@ -255,12 +272,13 @@ nav ul>li:hover {
     grid-area: news-left;
     border-top: 1px solid var(--tron-blue);
     transform: rotateX(15deg);
-    text-shadow: -2px -2px 10px;
+    text-shadow: -2px -2px 25px;
 }
 
 .news-left>h3 {
     color: var(--tron-blue);
     font-size: 1.2em;
+    /* text-align: auto; */
     /* background-color: var(--tron-blue); */
 }
 

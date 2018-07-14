@@ -123,7 +123,7 @@ $('#popular-games').on('click', 'img', function () {
 
             $("#popular-games-detail").append(
                 `
-                
+                <div>
                 <img src="https://images.igdb.com/igdb/image/upload/t_cover_big/${coverUrl}"/>
                 
                 <h2>${name}</h2><span class="fas fa-window-close"></span>
@@ -134,6 +134,7 @@ $('#popular-games').on('click', 'img', function () {
                 <p><strong>Summary: </strong>${summary}</p>
                 <br>
                 <a href=${url} target="_blank" class="fas fa-external-link-alt"> More Detail</a>
+                </div>
                 </div>
                 `
             )
@@ -243,7 +244,7 @@ $('#quick-search-popup').on('click', 'img', function () {
 
             $("#popular-games-detail").append(
                 `
-                
+                <div>
                 <img src="https://images.igdb.com/igdb/image/upload/t_cover_big/${coverUrl}"/>
                 
                 <h2>${name}</h2><span class="fas fa-window-close"></span>
@@ -254,6 +255,7 @@ $('#quick-search-popup').on('click', 'img', function () {
                 <p><strong>Summary: </strong>${summary}</p>
                 <br>
                 <a href=${url} target="_blank" class="fas fa-external-link-alt"> More Detail</a>
+                </div>
                 </div>
                 `
             )
