@@ -84,7 +84,7 @@ function showPopUp() {
     $('#popular-games-detail div').hide();
     $('#popular-games-detail h2').show(600);
     $('#popular-games-detail img').fadeIn(800);
-    $('#popular-games-detail div').slideDown(800);
+    $('#popular-games-detail div').slideDown(600);
 }
 /////hide detail popup end here/////
 
@@ -103,9 +103,11 @@ $('#quick-search-popup').on('click', 'span', function () {
 /////multi slider display end here/////
 
 
-// $(window).load(function(){
-//     // PAGE IS FULLY LOADED  
-//     // FADE OUT YOUR OVERLAYING DIV
-//     $('.loader').fadeOut(300);
-//  });
-
+/////show mobile navbar/////
+$('.fa-bars').on('click',function(){
+    $('nav ul').toggle(300);
+    
+})
+// $('nav ul').on('click',function(){
+    // $('nav ul').fadeOut(100);
+// })   
