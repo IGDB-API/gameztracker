@@ -316,9 +316,9 @@ let justDoIt = function popluateDeals() {
                 <tr>
                 <td>${storeNames}</td>
                 <td>$ ${salePrice} / <del>$ ${normalPrice}</del></td>
-                <td>${savings} % </td>
+                <td class="deals-saving">${savings} % </td>
                 <td class="deals-title"><img class="deals-thumb" src="${thumb}"/><a href=${dealUrl} target="_blank">${title}</a></td>
-                <td>${dealRating}</td>
+                <td class="deals-rating">${dealRating}</td>
                 <td>${metacriticScore}</td>
                 </tr>
                 `
@@ -394,9 +394,9 @@ $('#deals-search-filter').on('submit', (function (e) {
                     <tr>
                     <td>${storeNames}</td>
                     <td>$ ${salePrice} / <del>$ ${normalPrice}</del></td>
-                    <td>${savings} % </td>
+                    <td class="deals-saving">${savings} % </td>
                     <td class="deals-title"><img class="deals-thumb" src="${thumb}"/><a href=${dealUrl} target="_blank">${title}</a></td>
-                    <td>${dealRating}</td>
+                    <td class="deals-rating">${dealRating}</td>
                     <td>${metacriticScore}</td>
                     </tr>
                     `

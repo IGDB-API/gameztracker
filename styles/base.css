@@ -118,12 +118,14 @@
 
  ::-webkit-scrollbar {
      width: 0.3em;
+     height: 0.3em;
  }
 
  ::-webkit-scrollbar-thumb {
      background: var(--tron-blue);
  }
 
+ 
  ::-webkit-scrollbar-thumb:hover {
      background: var(--tron-pane);
  }
