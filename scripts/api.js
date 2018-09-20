@@ -188,7 +188,7 @@ $('#quick-search-form').on('submit', function (e) {
                     console.log(coverUrl);
                 }
                 else {
-                    var coverUrl = "https://images.igdb.com/igdb/image/upload/t_logo_med/"+quickSearchResults[i].cover.cloudinary_id;
+                    var coverUrl = "https://images.igdb.com/igdb/image/upload/t_logo_med/" + quickSearchResults[i].cover.cloudinary_id;
                     console.log(coverUrl);
                 }
 
@@ -229,7 +229,7 @@ $('#quick-search-popup').on('click', 'img', function () {
                 console.log(coverUrl);
             }
             else {
-                var coverUrl = "https://images.igdb.com/igdb/image/upload/t_cover_big/"+ quickSearchResults[j].cover.cloudinary_id;
+                var coverUrl = "https://images.igdb.com/igdb/image/upload/t_cover_big/" + quickSearchResults[j].cover.cloudinary_id;
                 console.log(coverUrl);
             }
             let summary = quickSearchResults[j].summary;

@@ -42,10 +42,7 @@ function doIt() {
 /////table sorter end here /////
 
 /////views for all pages/////
-// $(function () {
-    // $('.container').hide();
-    // $('.news').show();
-// })
+
 $("#section-news").on('click', function (e) {
     e.preventDefault();
     $('.container').hide(300);
@@ -93,12 +90,6 @@ $('#quick-search-popup').on('click', 'span', function () {
 
 
 /////hide quick search popup end here/////
-
-
-/////multi slider display/////
-
-/////multi slider display end here/////
-
 
 /////show mobile navbar/////
 $('.fa-bars').on('click',function(){
