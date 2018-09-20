@@ -38,17 +38,14 @@ $(function hightLight() {
 /////table sorter/////
 function doIt() {
     $('#deals-table').tablesorter().trigger("update");
-    // $('#deals-table').trigger("update");
 }
 /////table sorter end here /////
 
 /////views for all pages/////
-$(function () {
-    $('.container').hide();
-    // $('#popular-games-detail').hide();
-    // $('#quick-search-popup').hide();
-    $('.news').show();
-})
+// $(function () {
+    // $('.container').hide();
+    // $('.news').show();
+// })
 $("#section-news").on('click', function (e) {
     e.preventDefault();
     $('.container').hide(300);
@@ -108,6 +105,4 @@ $('.fa-bars').on('click',function(){
     $('nav ul').toggle(300);
     
 })
-// $('nav ul').on('click',function(){
-    // $('nav ul').fadeOut(100);
-// })   
+

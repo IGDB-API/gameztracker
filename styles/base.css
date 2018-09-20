@@ -68,16 +68,6 @@
      margin: auto;
  }
 
- .news {
-     width: 55vw;
-     margin: auto;
- }
-
- .daily-deal {
-     width: 70vw;
-     margin: auto;
- }
-
  li, a {
      font-size: 1em;
      text-decoration: none;
@@ -125,7 +115,6 @@
      background: var(--tron-blue);
  }
 
- 
  ::-webkit-scrollbar-thumb:hover {
      background: var(--tron-pane);
  }

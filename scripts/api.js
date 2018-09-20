@@ -183,11 +183,12 @@ $('#quick-search-form').on('submit', function (e) {
                 let id = quickSearchResults[i].id;
                 let name = quickSearchResults[i].name;
                 if (typeof (quickSearchResults[i].cover) == "undefined") {
-                    var coverUrl = "u-fuck";
+                    var coverUrl = "../src/NoImageAvailable.jpg";
+
                     console.log(coverUrl);
                 }
                 else {
-                    var coverUrl = quickSearchResults[i].cover.cloudinary_id;
+                    var coverUrl = "https://images.igdb.com/igdb/image/upload/t_logo_med/"+quickSearchResults[i].cover.cloudinary_id;
                     console.log(coverUrl);
                 }
 
@@ -195,7 +196,7 @@ $('#quick-search-form').on('submit', function (e) {
                 $('#quick-search-popup').append(
                     `
                     <li>
-                    <img src="https://images.igdb.com/igdb/image/upload/t_logo_med/${coverUrl}" id="${id}"/>
+                    <img src="${coverUrl}" id="${id}"/>
                     <p>${name}</p>
                     </li>
                     `
@@ -223,11 +224,12 @@ $('#quick-search-popup').on('click', 'img', function () {
 
             // let coverUrl = quickSearchResults[j].cover.cloudinary_id;
             if (typeof (quickSearchResults[j].cover) == "undefined") {
-                var coverUrl = "u-fuck";
+                var coverUrl = "../src/NoImageAvailable.jpg";
+
                 console.log(coverUrl);
             }
             else {
-                var coverUrl = quickSearchResults[j].cover.cloudinary_id;
+                var coverUrl = "https://images.igdb.com/igdb/image/upload/t_cover_big/"+ quickSearchResults[j].cover.cloudinary_id;
                 console.log(coverUrl);
             }
             let summary = quickSearchResults[j].summary;
@@ -245,7 +247,7 @@ $('#quick-search-popup').on('click', 'img', function () {
             $("#popular-games-detail").append(
                 `
                 <div>
-                <img src="https://images.igdb.com/igdb/image/upload/t_cover_big/${coverUrl}"/>
+                <img src="${coverUrl}"/>
                 
                 <h2>${name}</h2><span class="fas fa-window-close"></span>
                 <div>

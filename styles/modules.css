@@ -128,7 +128,6 @@ nav ul>li:hover {
 /* data-base here */
 
 #data-base-search-bar {
-    /* text-align: center; */
     display: grid;
     grid-template-areas: "searchbar filter";
     grid-template-columns: 1fr 1fr;
@@ -395,14 +394,15 @@ th {
     position: fixed;
     bottom: 5%;
     right: 5%;
-    opacity: 0.6;
+    opacity: 0.8;
     border: 0;
-    z-index: 10;
+    z-index: 15;
 }
 
 .scroll-top:hover {
     transition-duration: 300ms;
     color: var(--tron-pane);
+    opacity:1;
 }
 
 footer p {

@@ -18,8 +18,24 @@ main {
     margin-top: 3vh;
 }
 
+.news {
+    width: 55vw;
+    margin: auto;
+}
+
+/* data-base section hide on default */
+
 .data-base {
+    display: none;
     width: 80vw;
+    margin: auto;
+}
+
+/* daily-deal section hide on default */
+
+.daily-deal {
+    display: none;
+    width: 90vw;
     margin: auto;
 }
 
@@ -27,11 +43,7 @@ main {
 
 footer {
     position: relative;
-    /* display: grid; */
-    /* grid-template-columns: 1fr 1fr 1fr; */
-    /* grid-template-areas: ". footer-mid footer-right"; */
     background-color: black;
-    /* width:100vw; */
     min-height: 10vh;
     opacity: 0.8;
 }
@@ -112,9 +124,6 @@ footer {
     #quick-search-popup li {
         grid-template-columns: 1fr 2fr;
     }
-    #quick-search-popup p {
-        /* width:100vw; */
-    }
     #quick-search-popup img {
         width: 30vw;
         height: 18vw;
@@ -133,12 +142,8 @@ footer {
     #deals-search-filter div:nth-child(2) {
         width: 90vw;
     }
-    .daily-deal {
-        width: 90vw;
-    }
     #deals-table {
         width: 90vw;
-        /* overflow: auto; */
     }
     table {
         border-spacing: 0.2em;
@@ -147,14 +152,50 @@ footer {
         width: 20vw;
         height: 10vw;
     }
+    /* Hide elements for small screen */
     .deals-saving {
         display: none;
     }
     .deals-rating {
         display: none;
     }
+    /* Hide elements for small screen */
 }
 
-@media screen and(max-width:768px) {}
-
-@media screen and(max-width:1024px) {}
+@media only screen and (min-width:651px) and (max-width:1024px) {
+    /* //news page// */
+    .news {
+        width: 75vw;
+        margin: auto;
+    }
+    .news-template>img {
+        width: 34vw;
+        height: 20vw;
+    }
+    /* //data page// */
+    #popular-games {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+    }
+    #popular-games img {
+        width: 20vw;
+        height: 28vw;
+    }
+    #popular-games-detail {
+        width: 70vw;
+    }
+    #popular-games-detail>div {
+        grid-template-columns: 1fr 1fr;
+    }
+    #popular-games-detail img {
+        width:25vw;
+        height:35vw;
+    }
+    /* Quick search popup */
+    #quick-search-popup {
+        width: 50vw;
+        top: 15vh;
+        right: 5vw;
+        height: 70vh;
+    }
+}
