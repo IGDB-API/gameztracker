@@ -14,11 +14,15 @@ $(function populateNews() {
         console.log(res);
         newsResults = res;
         for (let i in res.articles) {
+            /////placeholder for missing img/////
+            let coverUrl = "../src/NoImageAvailable.jpg";
+            /////placeholder for missing img/////
+
             let title = newsResults.articles[i].title;
             let author = newsResults.articles[i].author;
             let description = newsResults.articles[i].description;
             let url = newsResults.articles[i].url;
-            let urlToImage = newsResults.articles[i].urlToImage;
+            let urlToImage = newsResults.articles[i].urlToImage || coverUrl;
             let publishedAt = newsResults.articles[i].publishedAt;
             let source = newsResults.articles[i].source.name;
 
