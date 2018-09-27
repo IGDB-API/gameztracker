@@ -92,7 +92,7 @@ function populatePopular() {
                 `
 
             )
-
+            console.log(popularResults)
         }
 
     }).fail(e => {
@@ -118,8 +118,18 @@ $('#popular-games').on('click', 'img', function () {
             let summary = popularResults[j].summary;
             let storyline = popularResults[j].storyline;
             let url = popularResults[j].url;
-            let developer = popularResults[j].developers[0].name;
+            // let developer = popularResults[j].developers[0].name 
+            if (typeof (popularResults[j]["developers"]) == "undefined") {
+                var developer = "Unknown";
+                // console.log(developer);
+            }
 
+            else {
+                var developer = popularResults[j].developers[0].name;
+
+            }
+
+            // console.log(developer);
             // <p>${storyline}</p>
 
             $("#popular-games-detail").append(
@@ -241,7 +251,8 @@ $('#quick-search-popup').on('click', 'img', function () {
             }
             else {
 
-                var developer = quickSearchResults[j].developers[0].name;
+                var developer = quickSearchResults[j].developers[0].name || 'Unknown';
+                console.log(developer);
             }
             // <p>${storyline}</p>
 
