@@ -14,6 +14,7 @@ $(function populateNews() {
         console.log(res);
         newsResults = res;
         for (let i in res.articles) {
+
             let title = newsResults.articles[i].title;
             let author = newsResults.articles[i].author;
             let description = newsResults.articles[i].description;
@@ -72,20 +73,20 @@ var igdbSettings = {
 
 function populatePopular() {
     $.ajax(igdbSettings).then((res, status) => {
-        console.log(res);
-        console.log(status);
+        // console.log(res);
+        // console.log(status);
         popularResults = res;
         for (let i in popularResults) {
             let id = popularResults[i].id;
             let name = popularResults[i].name;
             let coverUrl = popularResults[i].cover.cloudinary_id;
-
+            // console.log(coverUrl);
             $('#popular-games').append(
                 `
                 <li>
                 <div class="game-preview">
                     <p>${name}</p>
-                    <div><img src="https://images.igdb.com/igdb/image/upload/t_cover_big/${coverUrl}" id="${id}"/></div>
+                    <div><img src="https://images.igdb.com/igdb/image/upload/t_cover_big/${coverUrl}.png" id="${id}"/></div>
                 </div>
                 </li>
                 `
@@ -124,7 +125,7 @@ $('#popular-games').on('click', 'img', function () {
             $("#popular-games-detail").append(
                 `
                 <div>
-                <img src="https://images.igdb.com/igdb/image/upload/t_cover_big/${coverUrl}"/>
+                <img src="https://images.igdb.com/igdb/image/upload/t_cover_big/${coverUrl}.png"/>
                 
                 <h2>${name}</h2><span class="fas fa-window-close"></span>
                 <div>
@@ -185,10 +186,10 @@ $('#quick-search-form').on('submit', function (e) {
                 if (typeof (quickSearchResults[i].cover) == "undefined") {
                     var coverUrl = "../src/NoImageAvailable.jpg";
 
-                    console.log(coverUrl);
+                    // console.log(coverUrl);
                 }
                 else {
-                    var coverUrl = "https://images.igdb.com/igdb/image/upload/t_logo_med/" + quickSearchResults[i].cover.cloudinary_id;
+                    var coverUrl = `https://images.igdb.com/igdb/image/upload/t_logo_med/${quickSearchResults[i].cover.cloudinary_id}.png`;
                     console.log(coverUrl);
                 }
 
@@ -229,7 +230,7 @@ $('#quick-search-popup').on('click', 'img', function () {
                 console.log(coverUrl);
             }
             else {
-                var coverUrl = "https://images.igdb.com/igdb/image/upload/t_cover_big/" + quickSearchResults[j].cover.cloudinary_id;
+                var coverUrl = `https://images.igdb.com/igdb/image/upload/t_cover_big/${quickSearchResults[j].cover.cloudinary_id}.png`;
                 console.log(coverUrl);
             }
             let summary = quickSearchResults[j].summary;
