@@ -14,9 +14,6 @@ $(function populateNews() {
         console.log(res);
         newsResults = res;
         for (let i in res.articles) {
-            /////placeholder for missing img/////
-            // let coverUrl = "../src/NoImageAvailable.jpg";
-            /////placeholder for missing img/////
 
             let title = newsResults.articles[i].title;
             let author = newsResults.articles[i].author;
