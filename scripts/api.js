@@ -95,7 +95,7 @@ function populatePopular() {
                 `
 
             )
-            console.log(popularResults)
+            // console.log(popularResults)
         }
 
     }).fail(e => {
@@ -203,7 +203,7 @@ $('#quick-search-form').on('submit', function (e) {
                 }
                 else {
                     var coverUrl = `https://images.igdb.com/igdb/image/upload/t_logo_med/${quickSearchResults[i].cover.cloudinary_id}.png`;
-                    console.log(coverUrl);
+                   
                 }
 
 
@@ -240,11 +240,11 @@ $('#quick-search-popup').on('click', 'img', function () {
             if (typeof (quickSearchResults[j].cover) == "undefined") {
                 var coverUrl = "../src/NoImageAvailable.jpg";
 
-                console.log(coverUrl);
+             
             }
             else {
                 var coverUrl = `https://images.igdb.com/igdb/image/upload/t_cover_big/${quickSearchResults[j].cover.cloudinary_id}.png`;
-                console.log(coverUrl);
+      
             }
             let summary = quickSearchResults[j].summary;
             let storyline = quickSearchResults[j].storyline;
@@ -255,7 +255,7 @@ $('#quick-search-popup').on('click', 'img', function () {
             else {
 
                 var developer = quickSearchResults[j].developers[0].name || 'Unknown';
-                console.log(developer);
+                // console.log(developer);
             }
             // <p>${storyline}</p>
 

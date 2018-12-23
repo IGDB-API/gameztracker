@@ -1,163 +1,229 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-131185485-2"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+      gtag("config", "UA-131185485-2");
+    </script>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Video Game DataBase</title>
-    <link rel="stylesheet" href="./styles/reset.css">
-    <link rel="stylesheet" href="./styles/base.css">
-    <link rel="stylesheet" href="./styles/modules.css">
-    <link rel="stylesheet" href="./styles/datedropper.css">
-    <link rel="stylesheet" href="./styles/tron-style.css">
-    <link rel="stylesheet" href="./styles/particle.css">
-    <link rel="stylesheet" href="./styles/layout.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt"
-        crossorigin="anonymous">
-    <link rel="stylesheet" href="./styles/multirange.css">
-    <link rel="icon" href="./src/favicon.ico">
-    <link href="https://fonts.googleapis.com/css?family=Play|Russo+One" rel="stylesheet">
-</head>
+    <link rel="stylesheet" href="./styles/reset.css" />
+    <link rel="stylesheet" href="./styles/base.css" />
+    <link rel="stylesheet" href="./styles/modules.css" />
+    <link rel="stylesheet" href="./styles/datedropper.css" />
+    <link rel="stylesheet" href="./styles/tron-style.css" />
+    <link rel="stylesheet" href="./styles/particle.css" />
+    <link rel="stylesheet" href="./styles/layout.css" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.1.0/css/all.css"
+      integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./styles/multirange.css" />
+    <link rel="icon" href="./src/favicon.ico" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Play|Russo+One"
+      rel="stylesheet"
+    />
+  </head>
 
-<body>
+  <body>
     <div id="particles-js"></div>
     <header>
-        <nav id="navbar">
-            <div id="logo"></div>
+      <nav id="navbar">
+        <div id="logo"></div>
 
-            <div id="search-bar">
-                <form action="" id="quick-search-form">
-                    <input id="quick-search-input" type="text" placeholder="Quick search here..." class="search-input" />
-                    <button type="submit" class="search fas fa-search"></button>
-                    <input type="text" id="testing" data-large-mode="true" data-large-default="true" data-theme="tron-style" />
-                </form>
-            </div>
-            <div class="fas fa-cog"></div>
+        <div id="search-bar">
+          <form action="" id="quick-search-form">
+            <input
+              id="quick-search-input"
+              type="text"
+              placeholder="Quick search here..."
+              class="search-input"
+            />
+            <button type="submit" class="search fas fa-search"></button>
+            <input
+              type="text"
+              id="testing"
+              data-large-mode="true"
+              data-large-default="true"
+              data-theme="tron-style"
+            />
+          </form>
+        </div>
+        <div class="fas fa-cog"></div>
 
+        <ul>
+          <li class="fas fa-newspaper active">
+            <a id="section-news" href="#"> News</a>
+          </li>
 
-            <ul>
-                <li class="fas fa-newspaper active">
-                    <a id="section-news" href="#"> News</a>
-                </li>
+          <li class="fas fa-gamepad">
+            <a id="section-data-base" href="#"> DataBase</a>
+          </li>
 
-                <li class="fas fa-gamepad">
-                    <a id="section-data-base" href="#"> DataBase</a>
-                </li>
-
-
-                <li class="fas fa-chart-line">
-                    <a id="section-daily-deal" href="#"> DailyDeal</a>
-                </li>
-
-            </ul>
-            <span class="fas fa-bars"></span>
-        </nav>
+          <li class="fas fa-chart-line">
+            <a id="section-daily-deal" href="#"> DailyDeal</a>
+          </li>
+        </ul>
+        <span class="fas fa-bars"></span>
+      </nav>
     </header>
 
     <main>
-        <ul id="quick-search-popup">
-            <span class="fas fa-window-close"></span>
-        </ul>
-        <div id="popular-games-detail"></div>
-        <section class="container news">
-            <div class="header-perspective">
-                <h1>HEADLINES</h1>
-            </div>
-        </section>
-        <section class="container data-base">
-
-            <h1>Top Trending Games</h1>
+      <ul id="quick-search-popup">
+        <span class="fas fa-window-close"></span>
+      </ul>
+      <div id="popular-games-detail"></div>
+      <section class="container news">
+        <div class="header-perspective"><h1>HEADLINES</h1></div>
+      </section>
+      <section class="container data-base">
+        <h1>Top Trending Games</h1>
+        <div><ul id="popular-games"></ul></div>
+      </section>
+      <section class="container daily-deal">
+        <div>
+          <form action="" id="deals-search-filter">
             <div>
-                <ul id="popular-games">
-
-                </ul>
+              <input
+                id="detail-search-input"
+                type="text"
+                placeholder="Search game title..."
+                class="search-input"
+              />
             </div>
-
-
-        </section>
-        <section class="container daily-deal">
-
             <div>
-                <form action="" id="deals-search-filter">
-
-                    <div>
-                        <input id="detail-search-input" type="text" placeholder="Search game title..." class="search-input" />
-                    </div>
-                    <div>
-                        <label for="price_range">Price Range: $ 0</label>
-                        <input id="price_range" value="30" type="range" min="0" max="200" oninput="price_range_disp.value = price_range.value">
-                        <span>$</span>
-                        <output id="price_range_disp">30</output>
-                        <label for="score-range" title="Deal Rating is on a scale from 0 to 10.It factors in price, percent off,metacritic score,release date,price history,and more.">Metacritic:</label>
-                        <input id="score_range" value="0" type="range" min="0" max="100" oninput="score_range_disp.value=score_range.value">
-                        <output id="score_range_disp">0</output>
-                    </div>
-                    <div>
-                        <span>Stores:</span>
-                        <label for="steam">
-                            <input id="steam" value="1" checked type="checkbox">Steam</label>
-
-                        <label for="amazon">
-                            <input id="amazon" value="4" checked type="checkbox">Amazon</label>
-
-                        <label for="gameStop">
-                            <input id="gameStop" value="5" checked type="checkbox">GameStop</label>
-
-                        <label for="humbleStore">
-                            <input id="humbleStore" value="11" checked type="checkbox">HumbleStore</label>
-
-                    </div>
-                    <div>
-                        <button id="detail-deals-search" class="big-button" type="submit">Apply Change</button>
-                        <button id="detail-daily-deals" class="big-button" type="button">Daily top 50</button>
-                    </div>
-                </form>
+              <label for="price_range">Price Range: $ 0</label>
+              <input
+                id="price_range"
+                value="30"
+                type="range"
+                min="0"
+                max="200"
+                oninput="price_range_disp.value = price_range.value"
+              />
+              <span>$</span> <output id="price_range_disp">30</output>
+              <label
+                for="score-range"
+                title="Deal Rating is on a scale from 0 to 10.It factors in price, percent off,metacritic score,release date,price history,and more."
+                >Metacritic:</label
+              >
+              <input
+                id="score_range"
+                value="0"
+                type="range"
+                min="0"
+                max="100"
+                oninput="score_range_disp.value=score_range.value"
+              />
+              <output id="score_range_disp">0</output>
             </div>
-            <table id="deals-table" class="tablesorter">
-                <thead>
-                    <tr>
-                        <th>STORE</th>
-                        <th>PRICE</th>
-                        <th class="deals-saving">SAVINGS</th>
-                        <th>TITLE</th>
-                        <th class="deals-rating" title="Deal Rating is on a scale from 0 to 10.It factors in price, percent off,metacritic score,release date,price history,and more.">DEAL
-                            RATING</th>
-                        <th>METACRITIC</th>
-                    </tr>
-                </thead>
+            <div>
+              <span>Stores:</span>
+              <label for="steam">
+                <input
+                  id="steam"
+                  value="1"
+                  checked
+                  type="checkbox"
+                />Steam</label
+              >
 
-                <tbody id="table-here">
-                </tbody>
+              <label for="amazon">
+                <input
+                  id="amazon"
+                  value="4"
+                  checked
+                  type="checkbox"
+                />Amazon</label
+              >
 
-            </table>
-            <div class="error-message"></div>
-            <!-- </div> -->
-        </section>
+              <label for="gameStop">
+                <input
+                  id="gameStop"
+                  value="5"
+                  checked
+                  type="checkbox"
+                />GameStop</label
+              >
+
+              <label for="humbleStore">
+                <input
+                  id="humbleStore"
+                  value="11"
+                  checked
+                  type="checkbox"
+                />HumbleStore</label
+              >
+            </div>
+            <div>
+              <button id="detail-deals-search" class="big-button" type="submit">
+                Apply Change
+              </button>
+              <button id="detail-daily-deals" class="big-button" type="button">
+                Daily top 50
+              </button>
+            </div>
+          </form>
+        </div>
+        <table id="deals-table" class="tablesorter">
+          <thead>
+            <tr>
+              <th>STORE</th>
+              <th>PRICE</th>
+              <th class="deals-saving">SAVINGS</th>
+              <th>TITLE</th>
+              <th
+                class="deals-rating"
+                title="Deal Rating is on a scale from 0 to 10.It factors in price, percent off,metacritic score,release date,price history,and more."
+              >
+                DEAL RATING
+              </th>
+              <th>METACRITIC</th>
+            </tr>
+          </thead>
+
+          <tbody id="table-here"></tbody>
+        </table>
+        <div class="error-message"></div>
+        <!-- </div> -->
+      </section>
     </main>
 
     <a href="" class="scroll-top fas fa-arrow-alt-circle-up"></a>
 
-
     <footer>
-        <div class="footer-mid">
-            <br>
-            <p>&copy;Game Tracker 2018&nbsp All Rights Reserved</p>
+      <div class="footer-mid">
+        <br />
+        <p>&copy;Game Tracker 2018&nbsp All Rights Reserved</p>
 
-            <p>Powered By</p>
+        <p>Powered By</p>
 
-            <ul>
-                <li id="news-logo" title="NEWS API"></li>
-                <li id="igdb-logo" title="IGDB API"></li>
-                <li id="cheap-shark" title="CheapShark API"></li>
-            </ul>
-        </div>
-
+        <ul>
+          <li id="news-logo" title="NEWS API"></li>
+          <li id="igdb-logo" title="IGDB API"></li>
+          <li id="cheap-shark" title="CheapShark API"></li>
+        </ul>
+      </div>
     </footer>
 
     <!-- CDN -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
 
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.30.1/js/jquery.tablesorter.min.js"></script>
@@ -170,9 +236,7 @@
     <script src="./control/view.js"></script>
     <script src="./scripts/api.js"></script>
     <script>
-        $('#testing').dateDropper();
+      $("#testing").dateDropper();
     </script>
-
-</body>
-
+  </body>
 </html>
